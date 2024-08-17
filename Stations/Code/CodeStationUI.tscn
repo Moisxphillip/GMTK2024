@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://cewwiu2nn3bj2"]
+
+[ext_resource type="Script" path="res://Stations/Code/CodeStationUI.gd" id="1_mbf72"]
+
+[node name="CodeStationUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mbf72")
+
+[node name="CodeStationUI" type="CanvasLayer" parent="."]
+
+[node name="StopButton" type="Button" parent="CodeStationUI"]
+offset_left = 22.0
+offset_top = 179.0
+offset_right = 187.0
+offset_bottom = 278.0
+text = "STOP"
+
+[node name="BuildButton" type="Button" parent="CodeStationUI"]
+offset_left = 263.0
+offset_top = 170.0
+offset_right = 451.0
+offset_bottom = 273.0
+text = "BUILD"
+
+[node name="CodeButton" type="Button" parent="CodeStationUI"]
+offset_left = 20.0
+offset_top = 191.0
+offset_right = 185.0
+offset_bottom = 290.0
+text = "CODE"
+
+[node name="LabelCodingState" type="Label" parent="CodeStationUI"]
+offset_left = 139.0
+offset_top = 43.0
+offset_right = 301.0
+offset_bottom = 122.0
+theme_override_font_sizes/font_size = 26
+text = "CODING..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GenerateLabelsController" type="Control" parent="CodeStationUI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 428.0
+offset_top = 357.0
+offset_right = 468.0
+offset_bottom = 397.0
+
+[connection signal="pressed" from="CodeStationUI/StopButton" to="." method="_on_stop_button_pressed"]
+[connection signal="pressed" from="CodeStationUI/StopButton" to="CodeStationUI" method="_on_code_button_pressed"]
+[connection signal="pressed" from="CodeStationUI/BuildButton" to="." method="_on_build_button_pressed"]
+[connection signal="pressed" from="CodeStationUI/CodeButton" to="." method="_on_code_button_pressed"]
