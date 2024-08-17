@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8hujqsj10jys"]
+
+[ext_resource type="Texture2D" uid="uid://bygfdhqeiuspl" path="res://assets/floor.png" id="1_8yptv"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kqmes"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5foy8"]
+albedo_texture = ExtResource("1_8yptv")
+texture_filter = 0
+
+[node name="Floor" type="MeshInstance3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_kqmes")
+surface_material_override/0 = SubResource("StandardMaterial3D_5foy8")
