@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgiuuj577mhec"]
+
+[ext_resource type="Script" path="res://Server/RequisitionGenerator.gd" id="1_6tkk2"]
+
+[node name="RequisitionGenerator" type="Node3D"]
+script = ExtResource("1_6tkk2")

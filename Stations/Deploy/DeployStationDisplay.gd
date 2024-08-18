@@ -1,9 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dscfn2qkwawkv"]
-
-[ext_resource type="PackedScene" uid="uid://c4pvdien7y2qs" path="res://Stations/Code/CodeStationUI.tscn" id="2_0jbm7"]
-
-[sub_resource type="GDScript" id="GDScript_gjscd"]
-script/source = "extends Node3D
+extends Node3D
 
 var applicationReference = null
 
@@ -39,8 +34,6 @@ func handle_mouse(event):
 	
 	if event is InputEventMouseButton or event is InputEventScreenTouch:
 		mouse_held = event.pressed
-	elif event != InputEventMouseMotion:
-		return
 	
 	var mouse_pos3d = find_mouse(event.global_position)
 	mouse_inside = mouse_pos3d != null
@@ -102,38 +95,3 @@ func find_mouse(pos:Vector2):
 
 
 
-"
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_m3wio"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ow6xw"]
-resource_local_to_scene = true
-transparency = 1
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_m3wio")
-
-[sub_resource type="QuadMesh" id="QuadMesh_rdbgf"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_le6l6"]
-size = Vector3(1, 1, 0.0246582)
-
-[node name="CodeStationDisplay" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.504846, 0)
-script = SubResource("GDScript_gjscd")
-
-[node name="Display" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.35782, 0, 0, 0, 0.818596, 0, 0, 0, 1.00374, -0.0792002, 0, 0)
-material_override = SubResource("StandardMaterial3D_ow6xw")
-mesh = SubResource("QuadMesh_rdbgf")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-transparent_bg = true
-
-[node name="CodeStationUI" parent="SubViewport" instance=ExtResource("2_0jbm7")]
-
-[node name="ClickableArea" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0145264)
-shape = SubResource("BoxShape3D_le6l6")

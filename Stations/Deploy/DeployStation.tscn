@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqkxi0sgndxi"]
+
+[ext_resource type="Script" path="res://Stations/Deploy/DeployStation.gd" id="1_5mh6h"]
+[ext_resource type="PackedScene" uid="uid://f0ucfwaljvbi" path="res://Stations/Deploy/DeployStationDisplay.tscn" id="2_veg2f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_emh45"]
+
+[node name="DeployStation" type="Node3D"]
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0, 0, 0)
+script = ExtResource("1_5mh6h")
+
+[node name="StageArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StageArea"]
+transform = Transform3D(2.025, 0, 0, 0, 2.025, 0, 0, 0, 2.025, 0, -0.760306, 0.943125)
+shape = SubResource("BoxShape3D_emh45")
+
+[node name="DeployStationDisplay" parent="." instance=ExtResource("2_veg2f")]
+
+[connection signal="body_entered" from="StageArea" to="." method="_on_stage_area_body_entered"]
+[connection signal="body_exited" from="StageArea" to="." method="_on_stage_area_body_exited"]
