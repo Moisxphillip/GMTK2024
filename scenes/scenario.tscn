@@ -5,7 +5,7 @@
 [ext_resource type="MeshLibrary" uid="uid://cpy824kqhx0e1" path="res://BlockLibrary.tres" id="2_vj7ey"]
 [ext_resource type="PackedScene" uid="uid://cjovf8wurxmmy" path="res://scenes/interaction.tscn" id="3_3i7yv"]
 [ext_resource type="PackedScene" uid="uid://bvy2a7byi0mwn" path="res://scenes/Application.tscn" id="3_ut1ci"]
-[ext_resource type="PackedScene" uid="uid://ddgv8qa5q1sgb" path="res://Stations/Code/CodeStation.tscn" id="4_50rqp"]
+[ext_resource type="PackedScene" uid="uid://jko1vf7g07uf" path="res://Stations/Code/CodeStation.tscn" id="4_50rqp"]
 [ext_resource type="PackedScene" uid="uid://cqkxi0sgndxi" path="res://Stations/Deploy/DeployStation.tscn" id="6_dtob3"]
 
 [sub_resource type="Environment" id="Environment_hlb8c"]
