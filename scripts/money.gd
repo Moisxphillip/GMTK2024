@@ -9,3 +9,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func add_money(amount:int):
+	current_amount_of_money += amount
+	
+func take_money(amount:int):
+	current_amount_of_money -= amount

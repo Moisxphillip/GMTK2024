@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brj51y2twawr7"]
+[gd_scene load_steps=12 format=3 uid="uid://brj51y2twawr7"]
 
 [ext_resource type="Script" path="res://scenes/scenario.gd" id="1_f5g0b"]
 [ext_resource type="PackedScene" uid="uid://b0uig1gnc4qp6" path="res://scenes/player.tscn" id="1_lp5fw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bvy2a7byi0mwn" path="res://scenes/Application.tscn" id="3_ut1ci"]
 [ext_resource type="PackedScene" uid="uid://jko1vf7g07uf" path="res://Stations/Code/CodeStation.tscn" id="4_50rqp"]
 [ext_resource type="PackedScene" uid="uid://cqkxi0sgndxi" path="res://Stations/Deploy/DeployStation.tscn" id="6_dtob3"]
+[ext_resource type="PackedScene" uid="uid://cqs1k12y2sypm" path="res://Server/RequisitionQueue.tscn" id="8_em181"]
 
 [sub_resource type="Environment" id="Environment_hlb8c"]
 background_mode = 1
@@ -76,3 +77,6 @@ transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, -0.381445, 0, -0.
 transform = Transform3D(8.34367, 0, 0, 0, 1.6984, 0, 0, 0, 1, -1.28087, 0.845465, -2.79256)
 mesh = SubResource("QuadMesh_gahyl")
 surface_material_override/0 = SubResource("StandardMaterial3D_ces0s")
+
+[node name="Server" parent="." instance=ExtResource("8_em181")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5514, 0.425047, -2.75025)
