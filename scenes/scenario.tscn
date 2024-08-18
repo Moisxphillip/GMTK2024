@@ -1,35 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://brj51y2twawr7"]
+[gd_scene load_steps=11 format=3 uid="uid://brj51y2twawr7"]
 
 [ext_resource type="Script" path="res://scenes/scenario.gd" id="1_f5g0b"]
 [ext_resource type="PackedScene" uid="uid://b0uig1gnc4qp6" path="res://scenes/player.tscn" id="1_lp5fw"]
 [ext_resource type="MeshLibrary" uid="uid://cpy824kqhx0e1" path="res://BlockLibrary.tres" id="2_vj7ey"]
 [ext_resource type="PackedScene" uid="uid://cjovf8wurxmmy" path="res://scenes/interaction.tscn" id="3_3i7yv"]
-[ext_resource type="PackedScene" uid="uid://dkjn0hwa7xwe2" path="res://scenes/Application.tscn" id="3_ut1ci"]
-[ext_resource type="PackedScene" uid="uid://jko1vf7g07uf" path="res://Stations/Code/CodeStation.tscn" id="4_50rqp"]
+[ext_resource type="PackedScene" uid="uid://bvy2a7byi0mwn" path="res://scenes/Application.tscn" id="3_ut1ci"]
+[ext_resource type="PackedScene" uid="uid://ddgv8qa5q1sgb" path="res://Stations/Code/CodeStation.tscn" id="4_50rqp"]
 [ext_resource type="PackedScene" uid="uid://cqkxi0sgndxi" path="res://Stations/Deploy/DeployStation.tscn" id="6_dtob3"]
-[ext_resource type="PackedScene" uid="uid://bgiuuj577mhec" path="res://Server/RequisitionGenerator.tscn" id="8_l170q"]
+
+[sub_resource type="Environment" id="Environment_hlb8c"]
+background_mode = 1
+background_color = Color(0.55605, 0.714099, 0.834666, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_gahyl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ces0s"]
 albedo_color = Color(0.027451, 0, 0.203922, 1)
 
-[sub_resource type="Curve3D" id="Curve3D_fxio5"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0402766, 0.371717, 0.126554, 0, 0, 0, 0, 0, 0, -0.341098, 0.362208, 0.10341, 0, 0, 0, 0, 0, 0, -0.338183, -0.123958, 0.13697),
-"tilts": PackedFloat32Array(0, 0, 0)
-}
-point_count = 3
-
-[sub_resource type="Environment" id="Environment_hlb8c"]
-background_mode = 1
-background_color = Color(0.55605, 0.714099, 0.834666, 1)
-
 [node name="Scenario" type="Node3D"]
 script = ExtResource("1_f5g0b")
 
 [node name="Application" parent="." instance=ExtResource("3_ut1ci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0569937, 0.065661, -0.0251377)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0569937, 0.0958, -0.0251377)
 avg_code_value = 0.71
 code_value_variance_percentage = 0.64
 rate_increase_code_value = 0.35
@@ -83,19 +75,3 @@ transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, -0.381445, 0, -0.
 transform = Transform3D(8.34367, 0, 0, 0, 1.6984, 0, 0, 0, 1, -1.28087, 0.845465, -2.79256)
 mesh = SubResource("QuadMesh_gahyl")
 surface_material_override/0 = SubResource("StandardMaterial3D_ces0s")
-
-[node name="Server" type="Node3D" parent="."]
-
-[node name="RequisitionGenerator" parent="Server" instance=ExtResource("8_l170q")]
-transform = Transform3D(8.34367, 0, 0, 0, 1.6984, 0, 0, 0, 1, -1.28087, 0.845465, -2.79256)
-
-[node name="Path3D" type="Path3D" parent="Server"]
-transform = Transform3D(8.34367, 0, 0, 0, 1.6984, 0, 0, 0, 1, 2.51312, 0.845465, -2.79256)
-curve = SubResource("Curve3D_fxio5")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Server/Path3D"]
-transform = Transform3D(0.0104856, -0.999927, -0.00598161, -0.0687998, -0.0066892, 0.997607, -0.997576, -0.010049, -0.0688648, -0.338183, -0.123958, 0.13697)
-progress = 0.813071
-loop = false
-
-[node name="Sprite3D" type="Sprite3D" parent="Server/Path3D/PathFollow3D"]

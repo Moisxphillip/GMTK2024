@@ -4,7 +4,7 @@ extends Node3D
 @onready var Application = get_tree().current_scene.get_node("Application")
 
 func _ready():
-	pass # Replace with function body.
+    pass # Replace with function body.
 
-func _process(delta):
-	pass
+func _process(_delta):
+    pass
