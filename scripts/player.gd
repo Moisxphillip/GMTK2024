@@ -29,17 +29,17 @@ func _physics_process(_delta):
 		if abs(direction.x) > abs(direction.z):
 			if direction.x > 0:
 				animation.play("Right")
-				$HandRemoteTransform.position = Vector3(0.04,-0.08,0)
+				
 			else:
 				animation.play("Left")
-				$HandRemoteTransform.position = Vector3(-0.04,-0.08,-0.05)
+			
 		else:
 			if direction.z > 0:
 				animation.play("Down")
-				$HandRemoteTransform.position = Vector3(0.04,-0.08,0)
+
 			else:
 				animation.play("Up")
-				$HandRemoteTransform.position = Vector3(-0.04,-0.08,-0.05)
+				
 	else:
 		
 		if animation.current_animation.length() > 0 && animation.current_animation.length() <= 5:
