@@ -3,37 +3,32 @@ extends Node3D
 @export var application_name: String
 
 # average value generation for this application
-@export var avg_code_value:float
-@export var code_value_variance_percentage: float
-@export var rate_increase_code_value: float
+@export var avg_code_value:float = 0
+@export var code_value_variance_percentage: float = 0
+@export var rate_increase_code_value: float = 0
 
 # the less code quality the greater the possibility to generate bugs or security failures
-@export var avg_code_quality_percentage: float
-@export var rate_increase_quality_percentage: float
-@export var rate_decrease_quality_percentage: float
+@export var avg_code_quality_percentage: float = 0
+@export var rate_increase_quality_percentage: float = 0
+@export var rate_decrease_quality_percentage: float = 0
 
 # average cpu comsuption
-@export var avg_cpu_comsuption: float
-@export var cpu_consuption_variance_percentage: float
+@export var avg_cpu_comsuption: float = 0
+@export var cpu_consuption_variance_percentage: float = 0
 
 # average memory comsuption
-@export var avg_memory_comsuption: float
-@export var memory_comsuption_variance_percentage: float
+@export var avg_memory_comsuption: float = 0
+@export var memory_comsuption_variance_percentage: float = 0
 
-
-func _ready():
-	pass # Replace with function body.
-
-func _process(delta):
-	pass
 	
 #increase code value
+#TODO code value incremente can depend 
 func increaseCodeValue():
 	avg_code_value += rate_increase_code_value
 	avg_code_quality_percentage -= rate_decrease_quality_percentage
 	
 #generate value
-func increaseCodeQuality(valueToIncrease: int):
+func increaseCodeQuality():
 	avg_code_quality_percentage += rate_increase_quality_percentage
 
 

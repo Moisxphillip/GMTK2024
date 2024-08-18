@@ -1,20 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddgv8qa5q1sgb"]
+[gd_scene load_steps=4 format=3 uid="uid://jko1vf7g07uf"]
 
 [ext_resource type="Script" path="res://Stations/Code/CodeStation.gd" id="1_p82re"]
-[ext_resource type="PackedScene" uid="uid://dxknm26lvk6u2" path="res://Stations/Code/CodeStationDisplay.tscn" id="2_ld3ax"]
+[ext_resource type="PackedScene" uid="uid://dscfn2qkwawkv" path="res://Stations/Code/CodeStationDisplay.tscn" id="2_ld3ax"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_emh45"]
 
 [node name="CodeStation" type="Node3D"]
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0, 0, 0)
 script = ExtResource("1_p82re")
 
 [node name="CodeStationDisplay" parent="." instance=ExtResource("2_ld3ax")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.709607, 0)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="StageArea" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(2.025, 0, 0, 0, 2.025, 0, 0, 0, 2.025, 0, -0.760306, 0.943125)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StageArea"]
+transform = Transform3D(1.175, 0, 0, 0, 1.175, 0, 0, 0, 1.175, 0, -0.376373, 0.531989)
 shape = SubResource("BoxShape3D_emh45")
 
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="StageArea" to="." method="_on_stage_area_body_entered"]
+[connection signal="body_exited" from="StageArea" to="." method="_on_stage_area_body_exited"]

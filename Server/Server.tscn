@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqs1k12y2sypm"]
+
+[ext_resource type="PackedScene" uid="uid://bgiuuj577mhec" path="res://Server/RequisitionGenerator.tscn" id="1_5cl1l"]
+[ext_resource type="Script" path="res://Server/Server.gd" id="1_168xx"]
+
+[sub_resource type="Curve3D" id="Curve3D_fxio5"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0402766, 0.371717, 0.126554, 0, 0, 0, 0, 0, 0, -0.341098, 0.362208, 0.10341, 0, 0, 0, 0, 0, 0, -0.338183, -0.123958, 0.13697),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="FontFile" id="FontFile_u5ytl"]
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/4/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/12/0 = Vector2(0, 0)
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/12/0 = Vector2(0, 0)
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/12/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/12/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/12/0/kerning_overrides/12/0 = Vector2(0, 0)
+
+[node name="Server" type="Node3D"]
+script = ExtResource("1_168xx")
+
+[node name="RequisitionGenerator" parent="." instance=ExtResource("1_5cl1l")]
+transform = Transform3D(8.34367, 0, 0, 0, 1.6984, 0, 0, 0, 1, -1.28087, 0.845465, -2.79256)
+
+[node name="Path" type="Path3D" parent="."]
+transform = Transform3D(8.34367, 0, 0, 0, 1.6984, 0, 0, 0, 1, 2.51275, 0.846561, -2.79308)
+curve = SubResource("Curve3D_fxio5")
+
+[node name="PathFollow" type="PathFollow3D" parent="Path"]
+transform = Transform3D(0.0760894, 0, 0, 0, 1.91238, 0, 0, 0, 1, -0.164168, 0.407801, 0.117022)
+progress = 0.126034
+v_offset = 0.04
+rotation_mode = 0
+loop = false
+tilt_enabled = false
+
+[node name="Label3D" type="Label3D" parent="Path"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.194947, 0.459305, -0.11016)
+offset = Vector2(-0.23, 0)
+double_sided = false
+fixed_size = true
+texture_filter = 4
+text = "a"
+font = SubResource("FontFile_u5ytl")
+font_size = 12
+outline_size = 0
+width = 500.005
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.979668, 1.72564)

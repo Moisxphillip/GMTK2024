@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[autoload]
+
+Scenario="*res://scenes/scenario.gd"
+
 [input]
 
 Up={
