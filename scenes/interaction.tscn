@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Interaction.gd" id="1_r23nj"]
 [ext_resource type="Texture2D" uid="uid://w5u3xqfg2o0b" path="res://assets/button.png" id="2_ljxud"]
-[ext_resource type="Texture2D" uid="uid://in03j4jt5h21" path="res://assets/code_station.png" id="2_nnufa"]
+[ext_resource type="Texture2D" uid="uid://bhjb7x1ah6sce" path="res://assets/deploy_station.png" id="2_y0tfi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v1wkg"]
 size = Vector3(0.262848, 0.35199, 0.272949)
@@ -99,7 +99,7 @@ shape = SubResource("BoxShape3D_v1wkg")
 shaded = true
 alpha_cut = 2
 texture_filter = 0
-texture = ExtResource("2_nnufa")
+texture = ExtResource("2_y0tfi")
 
 [node name="BodyCollider" type="StaticBody3D" parent="."]
 

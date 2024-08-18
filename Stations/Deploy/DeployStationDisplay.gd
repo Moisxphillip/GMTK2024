@@ -21,10 +21,10 @@ func _ready():
 
 func _unhandled_input(event):
 	var is_mouse_event = false
-	if event is InputEventMouseMotion or event is InputEventMouseButton:
+	if (event is InputEventMouseMotion or event is InputEventMouseButton):
 		is_mouse_event = true
 	
-	if mouse_entered and (is_mouse_event or mouse_held):
+	if mouse_entered and (is_mouse_event or mouse_held): #mouse held deixa passar outros eventos pro handle_mouse 
 		handle_mouse(event)
 	elif not is_mouse_event:
 		subViewport.push_input(event, true)
@@ -35,7 +35,7 @@ func handle_mouse(event):
 	if event is InputEventMouseButton or event is InputEventScreenTouch:
 		mouse_held = event.pressed
 	
-	var mouse_pos3d = find_mouse(event.global_position)
+	var mouse_pos3d = find_mouse(event.global_position) #crash : Invalid get index 'global_position' (on base: 'InputEventJoypadMotion'). aqui com controle conectad
 	mouse_inside = mouse_pos3d != null
 	
 	if mouse_inside:
