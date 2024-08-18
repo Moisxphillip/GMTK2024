@@ -173,10 +173,10 @@ shape = SubResource("CapsuleShape3D_cv1k0")
 [node name="Sprite" type="Sprite3D" parent="."]
 shaded = true
 alpha_cut = 2
-texture_filter = 0
+texture_filter = 2
 texture = ExtResource("2_tdjor")
 hframes = 4
-vframes = 4
+vframes = 5
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {

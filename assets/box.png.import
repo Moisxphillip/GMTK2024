@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhjb7x1ah6sce"
-path="res://.godot/imported/deploy_station.png-ccf03c6b681f4729a69c5e25d18ba764.ctex"
+uid="uid://bqkgby3kkuinu"
+path="res://.godot/imported/box.png-52cc4e41fddadef836f9ad4dbe7936fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/deploy_station.png"
-dest_files=["res://.godot/imported/deploy_station.png-ccf03c6b681f4729a69c5e25d18ba764.ctex"]
+source_file="res://assets/box.png"
+dest_files=["res://.godot/imported/box.png-52cc4e41fddadef836f9ad4dbe7936fa.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
