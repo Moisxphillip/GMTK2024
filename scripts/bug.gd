@@ -15,8 +15,8 @@ func _process(delta):
 	return
 
 # Check if the area was clicked
-func _input_event(viewport: Viewport, input_event: InputEvent, shape_idx: int):
-	if input_event.is_action_pressed("Click"):
+func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int):
+	if event.is_action_pressed("Click"):
 		die()
 	return
 

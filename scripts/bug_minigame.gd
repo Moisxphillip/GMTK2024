@@ -19,9 +19,6 @@ func spawn_bug():
 	add_child(bug)
 	return
 
-func _process(delta):
-	return
-
 # Spawn new bugs
 func _on_spawn_timer_timeout():
 	spawn_bug()
