@@ -9,7 +9,7 @@ height = 0.281611
 
 [sub_resource type="Animation" id="Animation_i1cdr"]
 resource_name = "Down"
-length = 0.8
+length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -18,7 +18,7 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -86,7 +86,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_s3p7q"]
 resource_name = "Left"
-length = 0.8
+length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -95,7 +95,7 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [8, 9, 10, 11]
@@ -118,7 +118,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_nnhss"]
 resource_name = "Right"
-length = 0.8
+length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -127,7 +127,7 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [12, 13, 14, 15]
@@ -135,7 +135,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_dl8l1"]
 resource_name = "Up"
-length = 0.8
+length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -144,7 +144,7 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 6, 7]
@@ -173,15 +173,17 @@ shape = SubResource("CapsuleShape3D_cv1k0")
 [node name="Sprite" type="Sprite3D" parent="."]
 shaded = true
 alpha_cut = 2
-texture_filter = 0
+texture_filter = 2
 texture = ExtResource("2_tdjor")
 hframes = 4
-vframes = 4
+vframes = 5
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ny43g")
 }
+speed_scale = 2.0
+movie_quit_on_finish = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.930737, 0.365689, 0, -0.365689, 0.930737, 0, 0.627609, 1.46958)
