@@ -6,6 +6,10 @@ extends Node3D
 var last_generated_time = 0;
 var elapsed_time = 0;
 
+@export var avg_time_to_leave = 1
+@export var time_to_leave_variance= 0.2
+var application = null
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,12 +28,17 @@ func _process(delta):
 		generate_requisition()
 		
 func generate_requisition():
-	var requisition = Requisition.new()
-	requisition.cpu_usage = 1
-	requisition.mem_usage = 1
-	requisition.time_to_leave = 1
-	
-	requisition.load_balancer = get_parent().LoadBalancer
-	requisition.position.x = randf_range(-0.2,0.2)
-	get_parent().pathToFollow.add_child(requisition)
+	if application != null:
+		var requisition = Requisition.new()
+		requisition.cpu_usage = application.generateCPUComsuption()
+		requisition.mem_usage = application.generateMemoryComsuption()
+		requisition.time_to_leave = generate_ttl()
+		
+		requisition.load_balancer = get_parent().LoadBalancer
+		requisition.position.x = randf_range(-2.2,2.2)
+		get_parent().pathToFollow.add_child(requisition)
+
+func generate_ttl():
+	var variance = time_to_leave_variance*avg_time_to_leave
+	return randi_range(avg_time_to_leave - variance, avg_time_to_leave+variance)
 	

@@ -3,14 +3,11 @@ extends PathFollow3D
 
 var cpu_usage: float
 var mem_usage: float
-var time_to_leave: float
+@export var time_to_leave: float
 var load_balancer = null
-
 
 var pathFollow = null
 var elapsed_time: float = 0
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

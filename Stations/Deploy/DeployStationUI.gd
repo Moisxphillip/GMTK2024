@@ -22,11 +22,12 @@ func _process(_delta):
 	if is_building:
 		elapsed_time += _delta
 		$TestStationUI/ProgressBar.value = elapsed_time/time_to_deploy * 100
-	
 		if elapsed_time >= time_to_deploy:
 			playerReference.take_item()
 			is_building = false
 			$"../../Display".hide()
 			#deploy no servidor
 
+func deploy_application():
+	pass
 		

@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://dsarpownpf85c"]
+[gd_scene load_steps=20 format=3 uid="uid://dsarpownpf85c"]
 
+[ext_resource type="Script" path="res://Stations/Server/ServerController.gd" id="1_vgays"]
 [ext_resource type="PackedScene" uid="uid://khkmb4qvwxwe" path="res://Stations/Server/ServerStationUI.tscn" id="1_vuen5"]
 [ext_resource type="Texture2D" uid="uid://in03j4jt5h21" path="res://assets/code_station.png" id="3_6tsm3"]
 [ext_resource type="Texture2D" uid="uid://w5u3xqfg2o0b" path="res://assets/button.png" id="4_07gtu"]
@@ -118,6 +119,7 @@ _data = {
 
 [node name="ServerController" type="Node3D"]
 transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0, 0, 0)
+script = ExtResource("1_vgays")
 
 [node name="Display" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.35782, 0, 0, 0, 0.818596, 0, 0, 0, 1.00374, 0.107543, 0.720296, 0.341976)

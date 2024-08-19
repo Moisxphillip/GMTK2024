@@ -1,4 +1,5 @@
 extends Node3D
+var application = null
 #Precisa ter os servers como child
 
 # Called when the node enters the scene tree for the first time.
