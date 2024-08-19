@@ -1,17 +1,16 @@
 extends Node2D
 
+# The bug minigame spawn random bugs that run across the screen. When killed they yield points.
+# The bugs spawn when the timer runs outs and are killed when the user clicks on them or if they
+# reach the end of a safe zone.
+
 var BUG = preload("res://scenes/bug.tscn")
 
-# @TODO: test timer
-const TIMER_RESET_VALUE = 0.1
-var timer = TIMER_RESET_VALUE
-
-# @TODO: create more walk patterns
 func spawn_bug():
 	# Choose a random spawn point outside the window
 	var width = get_viewport().size.x
 	var height = get_viewport().size.y
-	var safe_spawn_radius = sqrt(width * width + height * height) / 1.5 # Always leave a little margin
+	var safe_spawn_radius = sqrt(width * width + height * height) / 2.0
 	var camera_position = get_viewport().get_camera_2d().global_position
 	var spawn_point = camera_position + Vector2(safe_spawn_radius, 0).rotated(randf_range(0, 2 * PI))
 	var bug = BUG.instantiate()
@@ -21,9 +20,14 @@ func spawn_bug():
 	return
 
 func _process(delta):
-	timer -= delta
+	return
 
-	if timer <= 0:
-		spawn_bug()
-		timer = TIMER_RESET_VALUE
+# Spawn new bugs
+func _on_spawn_timer_timeout():
+	spawn_bug()
+	return
+
+# Kill bugs that exit the killzone
+func _on_safe_zone_area_exited(area):
+	area.queue_free()
 	return
