@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = Vector2(200.0, 200.0)
+var speed = Vector2(200.0, 200.0)
 var direction = Vector2(0, 0)
 
 func _ready():
@@ -11,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	# Update position
-	set_position(get_position() + direction * SPEED * delta)
+	set_position(get_position() + direction * speed * delta)
 	return
 
 # Check if the area was clicked

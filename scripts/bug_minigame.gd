@@ -6,6 +6,9 @@ extends Node2D
 
 const BUG = preload("res://scenes/bug.tscn")
 
+@export var min_speed = Vector2(100, 100)
+@export var max_speed = Vector2(200, 200)
+
 var total_bugs_killed = 0
 
 func _ready():
@@ -22,6 +25,7 @@ func spawn_bug():
 	var bug = BUG.instantiate()
 
 	bug.global_position = spawn_point
+	bug.speed = Vector2(randf_range(min_speed.x, max_speed.x), randf_range(min_speed.y, max_speed.y))
 	add_child(bug)
 	return
 
