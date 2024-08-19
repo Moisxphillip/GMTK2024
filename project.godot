@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="GMTK2024"
-run/main_scene="res://scenes/scenario.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalBus="*res://scripts/signal_bus.gd"
+Scenario="*res://scenes/scenario.gd"
+Money="*res://scripts/Money.gd"
 
 [input]
 

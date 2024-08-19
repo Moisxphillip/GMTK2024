@@ -16,12 +16,14 @@ func _process(_delta):
 		$SubViewport/TestStationUI.playerReference = playerReference
 		playerReference.drop_item()
 		playerReference.isLockedOnAction = true
+	if  $SubViewport/TestStationUI.IsInteracting:
+		animation.play("Off")
 
 
 func _on_body_entered(_body):
 	if _body.is_in_group("player") and _body.isHoldingApplication:
-		#if not $SubViewport/TestStationUI.IsInteracting:
-			#animation.play("On")
+		if not $SubViewport/TestStationUI.IsInteracting:
+			animation.play("On")
 		isClose = true
 		playerReference = _body
 	
