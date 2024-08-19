@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck017jcttkvjx"]
+
+[ext_resource type="Script" path="res://Server/LoadBalancer.gd" id="1_5j3mj"]
+[ext_resource type="PackedScene" uid="uid://8xsymfihpq5t" path="res://Server/Server.tscn" id="2_43god"]
+
+[node name="LoadBalancer" type="Node3D"]
+script = ExtResource("1_5j3mj")
+
+[node name="Server" parent="." instance=ExtResource("2_43god")]

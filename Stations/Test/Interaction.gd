@@ -16,6 +16,8 @@ func _process(_delta):
 		$SubViewport/TestStationUI.playerReference = playerReference
 		playerReference.drop_item()
 		playerReference.isLockedOnAction = true
+	#if  $SubViewport/TestStationUI.IsInteracting:
+		#animation.play("Off")
 
 
 func _on_body_entered(_body):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brj51y2twawr7"]
+[gd_scene load_steps=15 format=3 uid="uid://brj51y2twawr7"]
 
 [ext_resource type="Script" path="res://scenes/scenario.gd" id="1_f5g0b"]
 [ext_resource type="PackedScene" uid="uid://b0uig1gnc4qp6" path="res://scenes/player.tscn" id="1_lp5fw"]
@@ -6,11 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://cjovf8wurxmmy" path="res://scenes/interaction.tscn" id="3_3i7yv"]
 [ext_resource type="PackedScene" uid="uid://bvy2a7byi0mwn" path="res://scenes/Application.tscn" id="3_ut1ci"]
 [ext_resource type="PackedScene" uid="uid://jko1vf7g07uf" path="res://Stations/Code/CodeStation.tscn" id="4_50rqp"]
-[ext_resource type="PackedScene" uid="uid://cqkxi0sgndxi" path="res://Stations/Deploy/DeployStation.tscn" id="6_dtob3"]
+[ext_resource type="PackedScene" uid="uid://mclbdsbbs8qq" path="res://Stations/Deploy/DeployStation.tscn" id="6_dtob3"]
+[ext_resource type="PackedScene" uid="uid://dq3erjug3kbl0" path="res://Stations/Test/TestStation.tscn" id="9_gw6ib"]
+[ext_resource type="PackedScene" uid="uid://dsarpownpf85c" path="res://Stations/Server/ServerController.tscn" id="10_b8lhp"]
+[ext_resource type="Script" path="res://scripts/MoneyLabel.gd" id="10_r8tij"]
 
 [sub_resource type="Environment" id="Environment_hlb8c"]
 background_mode = 1
 background_color = Color(0.55605, 0.714099, 0.834666, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6eghq"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gahyl"]
 
@@ -34,6 +39,7 @@ avg_memory_comsuption = 0.505
 memory_comsuption_variance_percentage = 0.485
 
 [node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12849, 0, -0.900371)
 mesh_library = ExtResource("2_vj7ey")
 cell_size = Vector3(0.2, 0.2, 0.2)
 cell_center_y = false
@@ -62,17 +68,59 @@ environment = SubResource("Environment_hlb8c")
 
 [node name="Interaction" parent="." instance=ExtResource("3_3i7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15947, -0.980668)
+visible = false
 
 [node name="Interaction2" parent="." instance=ExtResource("3_3i7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25079, 0.15947, -1.45279)
+visible = false
 
 [node name="DeployStation" parent="." instance=ExtResource("6_dtob3")]
-transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, -4.04622, 0, -1.28539)
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, -1.41758, 0, -1.66597)
+
+[node name="Desk" type="MeshInstance3D" parent="DeployStation"]
+transform = Transform3D(0.969413, 0, 0, 0, 0.21475, 0, 0, 0, 0.668878, 0.0210406, 0.167778, -0.20296)
+mesh = SubResource("BoxMesh_6eghq")
+skeleton = NodePath("../..")
 
 [node name="CodeStation" parent="." instance=ExtResource("4_50rqp")]
-transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, -0.381445, 0, -0.93615)
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, -0.381445, 0.0681784, -1.93615)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(8.34367, 0, 0, 0, 1.6984, 0, 0, 0, 1, -1.28087, 0.845465, -2.79256)
+[node name="Desk" type="MeshInstance3D" parent="CodeStation"]
+transform = Transform3D(0.969413, 0, 0, 0, 0.21475, 0, 0, 0, 0.668878, 0.0210406, 0.167778, -0.20296)
+mesh = SubResource("BoxMesh_6eghq")
+skeleton = NodePath("../..")
+
+[node name="TestStation" parent="." instance=ExtResource("9_gw6ib")]
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0.831208, 0.00420356, -1.51051)
+
+[node name="Desk" type="MeshInstance3D" parent="TestStation"]
+transform = Transform3D(0.969413, 0, 0, 0, 0.21475, 0, 0, 0, 0.668878, 0.0210404, 0.167778, -0.20296)
+mesh = SubResource("BoxMesh_6eghq")
+skeleton = NodePath("../..")
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.34367, 0, 0, 0, 1.6984, 0, 0, 0, 1, -0.455654, 0.847953, -2.79306)
 mesh = SubResource("QuadMesh_gahyl")
 surface_material_override/0 = SubResource("StandardMaterial3D_ces0s")
+
+[node name="Money" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="Money"]
+offset_left = 950.0
+offset_top = 24.0
+offset_right = 1107.0
+offset_bottom = 79.0
+
+[node name="MoneyLabel" type="Label" parent="Money/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 13.0
+offset_right = 152.0
+offset_bottom = 41.0
+text = "
+"
+horizontal_alignment = 2
+script = ExtResource("10_r8tij")
+
+[node name="ServerController" parent="." instance=ExtResource("10_b8lhp")]
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 2, 0, -2)

@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxvk34wve7au7"]
+
+[ext_resource type="Script" path="res://Stations/Test/TestStationUI.gd" id="1_862f7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3tq2h"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7o1r5"]
+viewport_path = NodePath("SubViewport")
+
+[node name="TestStationUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_862f7")
+
+[node name="TestStationUI" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="TestStationUI"]
+offset_left = 133.0
+offset_top = 397.0
+offset_right = 412.0
+offset_bottom = 428.0
+
+[node name="Particles" type="CPUParticles2D" parent="TestStationUI"]
+material = SubResource("CanvasItemMaterial_3tq2h")
+position = Vector2(244, 409)
+amount = 4
+lifetime = 8.0
+randomness = 0.4
+lifetime_randomness = 0.48
+texture = SubResource("ViewportTexture_7o1r5")
+emission_shape = 3
+emission_rect_extents = Vector2(60, 1)
+gravity = Vector2(0, 0)
+radial_accel_min = 6.02
+radial_accel_max = 12.03
+tangential_accel_min = 7.52
+tangential_accel_max = 7.52
+scale_amount_max = 2.0
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(32, 32)
+
+[node name="Label" type="Label" parent="SubViewport"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.141176, 0.713726, 0.141176, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+text = "+1"
+horizontal_alignment = 1
+vertical_alignment = 1

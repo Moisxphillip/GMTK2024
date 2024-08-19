@@ -18,7 +18,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Scenario="res://scenes/scenario.gd"
+Scenario="*res://scenes/scenario.gd"
+Money="*res://scripts/Money.gd"
 
 [input]
 
