@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqs1k12y2sypm"]
+[gd_scene load_steps=4 format=3 uid="uid://cqs1k12y2sypm"]
 
 [ext_resource type="PackedScene" uid="uid://bgiuuj577mhec" path="res://Server/RequisitionGenerator.tscn" id="1_5cl1l"]
 [ext_resource type="Script" path="res://Server/RequisitionQueue.gd" id="1_168xx"]
@@ -9,35 +9,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
-
-[sub_resource type="FontFile" id="FontFile_u5ytl"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/4/0/ascent = 0.0
-cache/0/4/0/descent = 0.0
-cache/0/4/0/underline_position = 0.0
-cache/0/4/0/underline_thickness = 0.0
-cache/0/4/0/scale = 1.0
-cache/0/4/0/kerning_overrides/4/0 = Vector2(0, 0)
-cache/0/4/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/4/0/kerning_overrides/12/0 = Vector2(0, 0)
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/4/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/12/0 = Vector2(0, 0)
-cache/0/12/0/ascent = 0.0
-cache/0/12/0/descent = 0.0
-cache/0/12/0/underline_position = 0.0
-cache/0/12/0/underline_thickness = 0.0
-cache/0/12/0/scale = 1.0
-cache/0/12/0/kerning_overrides/4/0 = Vector2(0, 0)
-cache/0/12/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/12/0/kerning_overrides/12/0 = Vector2(0, 0)
 
 [node name="RequisitionQueue" type="Node3D"]
 script = ExtResource("1_168xx")
@@ -56,15 +27,3 @@ v_offset = 0.04
 rotation_mode = 0
 loop = false
 tilt_enabled = false
-
-[node name="Label3D" type="Label3D" parent="Path"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.194947, 0.459305, -0.11016)
-offset = Vector2(-0.23, 0)
-double_sided = false
-fixed_size = true
-texture_filter = 4
-text = "a"
-font = SubResource("FontFile_u5ytl")
-font_size = 12
-outline_size = 0
-width = 500.005

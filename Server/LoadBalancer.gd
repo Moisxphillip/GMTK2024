@@ -20,10 +20,10 @@ func distribute_requisition(cpu_usage:float, mem_usage:float, ttl:float):
 	var free_cpu_per_server = []
 	var free_mem_per_server = []
 	for i in range(number_of_servers):
-		free_cpu_per_server[i] = get_child(i).CPU_capacity - get_child(i).CPU_usage
+		free_cpu_per_server.append(get_child(i).CPU_capacity - get_child(i).total_CPU_usage)
 		total_cpu += get_child(i).CPU_capacity
 		total_free_cpu += free_cpu_per_server[i] 
-		free_mem_per_server[i] = get_child(i).mem_capacity - get_child(i).mem_usage
+		free_mem_per_server.append(get_child(i).mem_capacity - get_child(i).total_mem_usage)
 		total_mem += get_child(i).mem_capacity
 		total_free_mem += free_mem_per_server[i]
 		
@@ -41,6 +41,8 @@ func distribute_requisition(cpu_usage:float, mem_usage:float, ttl:float):
 			if amount > most_free_space:
 				most_free_space = amount
 				most_free_space_idx = i
+				
+	
 				
 	get_child(most_free_space_idx).add_req(cpu_usage, mem_usage, ttl)
 		

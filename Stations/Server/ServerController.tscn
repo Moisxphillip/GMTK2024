@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://jko1vf7g07uf"]
+[gd_scene load_steps=19 format=3 uid="uid://dsarpownpf85c"]
 
-[ext_resource type="Script" path="res://Stations/Code/Interaction.gd" id="1_dc5gj"]
-[ext_resource type="PackedScene" uid="uid://c4pvdien7y2qs" path="res://Stations/Code/CodeStationUI.tscn" id="2_sha27"]
-[ext_resource type="Texture2D" uid="uid://in03j4jt5h21" path="res://assets/code_station.png" id="4_m0irh"]
-[ext_resource type="Texture2D" uid="uid://w5u3xqfg2o0b" path="res://assets/button.png" id="5_smts3"]
+[ext_resource type="PackedScene" uid="uid://khkmb4qvwxwe" path="res://Stations/Server/ServerStationUI.tscn" id="1_vuen5"]
+[ext_resource type="Texture2D" uid="uid://in03j4jt5h21" path="res://assets/code_station.png" id="3_6tsm3"]
+[ext_resource type="Texture2D" uid="uid://w5u3xqfg2o0b" path="res://assets/button.png" id="4_07gtu"]
+[ext_resource type="PackedScene" uid="uid://cqs1k12y2sypm" path="res://Server/RequisitionQueue.tscn" id="4_wqwii"]
+[ext_resource type="PackedScene" uid="uid://ck017jcttkvjx" path="res://Server/LoadBalancer.tscn" id="5_vnirg"]
+[ext_resource type="PackedScene" uid="uid://8xsymfihpq5t" path="res://Server/Server.tscn" id="6_tt87a"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_331k1"]
-viewport_path = NodePath("Interaction/SubViewport")
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3valc"]
 resource_local_to_scene = true
@@ -112,53 +114,75 @@ _data = {
 "RESET": SubResource("Animation_sem0y")
 }
 
-[node name="CodeStation" type="Node3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_v64ul"]
+
+[node name="ServerController" type="Node3D"]
 transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0, 0, 0)
 
-[node name="Interaction" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0857514, 0.442632, 0.0871172)
-script = ExtResource("1_dc5gj")
-
-[node name="Display" type="MeshInstance3D" parent="Interaction"]
-transform = Transform3D(1.35782, 0, 0, 0, 0.818596, 0, 0, 0, 1.00374, 0.0217917, 0.277664, 0.0678239)
+[node name="Display" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.35782, 0, 0, 0, 0.818596, 0, 0, 0, 1.00374, 0.107543, 0.720296, 0.341976)
 material_override = SubResource("StandardMaterial3D_3valc")
 mesh = SubResource("QuadMesh_rpjyf")
-skeleton = NodePath("../..")
 
-[node name="SubViewport" type="SubViewport" parent="Interaction"]
+[node name="SubViewport" type="SubViewport" parent="."]
 disable_3d = true
 transparent_bg = true
 
-[node name="CodeStationUI" parent="Interaction/SubViewport" instance=ExtResource("2_sha27")]
+[node name="ServerStationUI" parent="SubViewport" instance=ExtResource("1_vuen5")]
+offset_left = 102.0
+offset_top = 518.5
+offset_right = 142.0
+offset_bottom = 558.5
+
+[node name="Interaction" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0857514, 0.442632, 0.0871172)
+visible = false
 
 [node name="InteractShape" type="CollisionShape3D" parent="Interaction"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00355531, 0.0143127, -0.00219727)
+visible = false
 shape = SubResource("BoxShape3D_v1wkg")
 
 [node name="MachineSprite" type="Sprite3D" parent="Interaction"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129018, 0)
+visible = false
 shaded = true
 alpha_cut = 2
 texture_filter = 0
-texture = ExtResource("4_m0irh")
+texture = ExtResource("3_6tsm3")
 
 [node name="BodyCollider" type="StaticBody3D" parent="Interaction"]
+visible = false
 
 [node name="BodyShape" type="CollisionShape3D" parent="Interaction/BodyCollider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00135803, -0.0284424, -0.063324)
+visible = false
 shape = SubResource("BoxShape3D_r1dhf")
 
 [node name="ButtonSprite" type="Sprite3D" parent="Interaction"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57109, 0)
 visible = false
 texture_filter = 0
-texture = ExtResource("5_smts3")
+texture = ExtResource("4_07gtu")
 hframes = 2
 
 [node name="Animation" type="AnimationPlayer" parent="Interaction"]
 libraries = {
 "": SubResource("AnimationLibrary_nexk5")
 }
+
+[node name="RequisitionQueue" parent="." instance=ExtResource("4_wqwii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90458, 0.532429, -0.0532783)
+
+[node name="LoadBalancer" parent="." instance=ExtResource("5_vnirg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31843, 0.467842, -0.146599)
+
+[node name="Server2" parent="LoadBalancer" instance=ExtResource("6_tt87a")]
+
+[node name="Desk" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.316073, 0, 0, 0, 0.702091, 0, 0, 0, 0.26764, 0.0457376, 0.407401, 0.101393)
+mesh = SubResource("BoxMesh_v64ul")
+skeleton = NodePath("../..")
 
 [connection signal="body_entered" from="Interaction" to="Interaction" method="_on_body_entered"]
 [connection signal="body_exited" from="Interaction" to="Interaction" method="_on_body_exited"]

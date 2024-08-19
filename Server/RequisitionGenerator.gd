@@ -25,6 +25,11 @@ func _process(delta):
 		
 func generate_requisition():
 	var requisition = Requisition.new()
+	requisition.cpu_usage = 1
+	requisition.mem_usage = 1
+	requisition.time_to_leave = 1
+	
+	requisition.load_balancer = get_parent().LoadBalancer
 	requisition.position.x = randf_range(-0.2,0.2)
 	get_parent().pathToFollow.add_child(requisition)
 	

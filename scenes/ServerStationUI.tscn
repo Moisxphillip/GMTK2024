@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4pvdien7y2qs"]
+[gd_scene load_steps=7 format=3 uid="uid://bsaas4e3pihyb"]
 
-[ext_resource type="Script" path="res://Stations/Code/CodeStationUI.gd" id="1_mbf72"]
+[ext_resource type="Script" path="res://scenes/ServerStationUI.gd" id="1_3opg1"]
 
 [sub_resource type="Animation" id="Animation_eop1p"]
 length = 0.001
@@ -70,28 +70,28 @@ light_mode = 1
 [sub_resource type="ViewportTexture" id="ViewportTexture_7o1r5"]
 viewport_path = NodePath("SubViewport")
 
-[node name="CodeStationUI" type="Control"]
+[node name="ServerStationUI" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_mbf72")
+script = ExtResource("1_3opg1")
 
-[node name="CodeStationUI" type="CanvasLayer" parent="."]
+[node name="ServerStationUI" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="ProgressBar" parent="CodeStationUI"]
+[node name="ProgressBar" type="ProgressBar" parent="ServerStationUI"]
 visible = false
 offset_left = 131.0
 offset_top = 61.0
 offset_right = 410.0
 offset_bottom = 92.0
 
-[node name="Animation" type="AnimationPlayer" parent="CodeStationUI"]
+[node name="Animation" type="AnimationPlayer" parent="ServerStationUI"]
 libraries = {
 "": SubResource("AnimationLibrary_u8lnk")
 }
 
-[node name="Particles" type="CPUParticles2D" parent="CodeStationUI"]
+[node name="Particles" type="CPUParticles2D" parent="ServerStationUI"]
 material = SubResource("CanvasItemMaterial_3tq2h")
 position = Vector2(244, 409)
 amount = 6

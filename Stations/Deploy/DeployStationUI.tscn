@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1y2u3ogu3qix"]
+[gd_scene load_steps=2 format=3 uid="uid://uh0617uhiluk"]
 
 [ext_resource type="Script" path="res://Stations/Deploy/DeployStationUI.gd" id="1_thd4g"]
 
@@ -11,25 +11,15 @@ script = ExtResource("1_thd4g")
 
 [node name="DeployStationUI" type="CanvasLayer" parent="."]
 
-[node name="DeployButton" type="Button" parent="DeployStationUI"]
-offset_left = 133.0
-offset_top = 166.0
-offset_right = 298.0
-offset_bottom = 265.0
-text = "DEPLOY"
-
-[node name="GenerateLabelsController" type="Control" parent="DeployStationUI"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 428.0
-offset_top = 357.0
-offset_right = 468.0
-offset_bottom = 397.0
-
 [node name="ProgressBar" type="ProgressBar" parent="DeployStationUI"]
-offset_left = 63.0
-offset_top = 76.0
-offset_right = 357.0
-offset_bottom = 120.0
-
-[connection signal="pressed" from="DeployStationUI/DeployButton" to="." method="_on_deploy_button_pressed"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 42.0
+offset_right = 54.0
+offset_bottom = -108.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3

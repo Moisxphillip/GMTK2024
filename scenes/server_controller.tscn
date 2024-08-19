@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxud42m84cndn"]
+
+[ext_resource type="PackedScene" uid="uid://cqs1k12y2sypm" path="res://Server/RequisitionQueue.tscn" id="1_2d4cf"]
+[ext_resource type="PackedScene" uid="uid://ck017jcttkvjx" path="res://Server/LoadBalancer.tscn" id="2_e5jyn"]
+[ext_resource type="PackedScene" uid="uid://8xsymfihpq5t" path="res://Server/Server.tscn" id="3_n3oaq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6eghq"]
+
+[node name="ServerController" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5514, 0.425047, -2.75025)
+
+[node name="RequisitionQueue" parent="." instance=ExtResource("1_2d4cf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586154, 0.0645865, 0.0933208)
+
+[node name="LoadBalancer" parent="." instance=ExtResource("2_e5jyn")]
+
+[node name="Server2" parent="LoadBalancer" instance=ExtResource("3_n3oaq")]
+
+[node name="Desk" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.316073, 0, 0, 0, 0.702091, 0, 0, 0, 0.26764, -2.27269, -0.0604412, 0.247992)
+mesh = SubResource("BoxMesh_6eghq")
+skeleton = NodePath("../..")
