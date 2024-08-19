@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfivsl2x860wn"]
+
+[ext_resource type="Texture2D" uid="uid://bwql7g1lb3ast" path="res://assets/0_PLACEHOLDER_scout_taunt.png" id="1_wu2y0"]
+[ext_resource type="Script" path="res://scripts/bug.gd" id="1_yj5kf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqr22"]
+size = Vector2(56, 80)
+
+[node name="Bug" type="Area2D"]
+script = ExtResource("1_yj5kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_jqr22")
+
+[node name="0PlaceholderScoutTaunt" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wu2y0")
