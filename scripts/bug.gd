@@ -22,4 +22,5 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int):
 
 func die():
 	queue_free()
+	SignalBus.on_kill.emit() # Tell the game this bug died
 	return

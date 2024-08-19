@@ -4,7 +4,13 @@ extends Node2D
 # The bugs spawn when the timer runs outs and are killed when the user clicks on them or if they
 # reach the end of a safe zone.
 
-var BUG = preload("res://scenes/bug.tscn")
+const BUG = preload("res://scenes/bug.tscn")
+
+var total_bugs_killed = 0
+
+func _ready():
+	SignalBus.on_kill.connect(on_bug_killed)
+	return
 
 func spawn_bug():
 	# Choose a random spawn point outside the window
@@ -27,4 +33,9 @@ func _on_spawn_timer_timeout():
 # Kill bugs that exit the killzone
 func _on_safe_zone_area_exited(area):
 	area.queue_free()
+	return
+
+# Keep track of bugs killed
+func on_bug_killed():
+	total_bugs_killed += 1
 	return
