@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Bossa weee.ogg-0cdef3352968412dcb881514d2a12f
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

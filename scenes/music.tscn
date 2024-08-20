@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh201x5l5viir"]
+
+[ext_resource type="AudioStream" uid="uid://bdnmksbyg34qw" path="res://assets/Audio/Bossa weee.ogg" id="1_l4pcd"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_l4pcd")
+autoplay = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://brj51y2twawr7"]
+[gd_scene load_steps=32 format=3 uid="uid://brj51y2twawr7"]
 
 [ext_resource type="Script" path="res://scenes/scenario.gd" id="1_f5g0b"]
 [ext_resource type="PackedScene" uid="uid://b0uig1gnc4qp6" path="res://scenes/player.tscn" id="1_lp5fw"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cwklujoqs7xso" path="res://Stores/UpgradeStoreUI.tscn" id="12_sm0bq"]
 [ext_resource type="PackedScene" uid="uid://tdt0xhimmbcc" path="res://Stations/Plan/PlanStation.tscn" id="13_8cbo5"]
 [ext_resource type="PackedScene" uid="uid://bd38e2mcgyth2" path="res://Stations/Operate/OperateStation.tscn" id="14_506bh"]
+[ext_resource type="PackedScene" uid="uid://bh201x5l5viir" path="res://scenes/music.tscn" id="15_4mrb1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpglr"]
 atlas = ExtResource("5_e4lil")
@@ -277,5 +278,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78434, -0.0405648, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallCollider4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77006, 0.488927, -0.582657)
 shape = SubResource("BoxShape3D_wxnbi")
+
+[node name="Music" parent="." instance=ExtResource("15_4mrb1")]
 
 [editable path="PlanStation2"]
