@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj8l1hiifye1v"]
+[gd_scene load_steps=4 format=3 uid="uid://cj8l1hiifye1v"]
 
 [ext_resource type="Script" path="res://scripts/bug_base.gd" id="1_16mnt"]
+[ext_resource type="AudioStream" uid="uid://dun5terkblpx4" path="res://assets/Audio/11.wav" id="2_d4at3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqr22"]
 size = Vector2(64, 64)
@@ -10,3 +11,7 @@ script = ExtResource("1_16mnt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jqr22")
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_d4at3")
+volume_db = -3.0
