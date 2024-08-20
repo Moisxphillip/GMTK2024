@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://brj51y2twawr7"]
+[gd_scene load_steps=43 format=3 uid="uid://brj51y2twawr7"]
 
 [ext_resource type="Script" path="res://scenes/scenario.gd" id="1_f5g0b"]
 [ext_resource type="PackedScene" uid="uid://b0uig1gnc4qp6" path="res://scenes/player.tscn" id="1_lp5fw"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://jko1vf7g07uf" path="res://Stations/Code/CodeStation.tscn" id="4_50rqp"]
 [ext_resource type="Texture2D" uid="uid://bqkgby3kkuinu" path="res://assets/box.png" id="5_e4lil"]
 [ext_resource type="PackedScene" uid="uid://mclbdsbbs8qq" path="res://Stations/Deploy/DeployStation.tscn" id="6_dtob3"]
-[ext_resource type="PackedScene" uid="uid://cw3q6grenvqni" path="res://scenes/desk.tscn" id="8_v0242"]
+[ext_resource type="PackedScene" path="res://scenes/desk.tscn" id="8_v0242"]
 [ext_resource type="PackedScene" uid="uid://dq3erjug3kbl0" path="res://Stations/Test/TestStation.tscn" id="9_gw6ib"]
 [ext_resource type="PackedScene" uid="uid://dsarpownpf85c" path="res://Stations/Server/ServerController.tscn" id="10_b8lhp"]
 [ext_resource type="Script" path="res://scripts/MoneyLabel.gd" id="10_r8tij"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cwklujoqs7xso" path="res://Stores/UpgradeStoreUI.tscn" id="12_sm0bq"]
 [ext_resource type="PackedScene" uid="uid://tdt0xhimmbcc" path="res://Stations/Plan/PlanStation.tscn" id="13_8cbo5"]
 [ext_resource type="PackedScene" uid="uid://bd38e2mcgyth2" path="res://Stations/Operate/OperateStation.tscn" id="14_506bh"]
+[ext_resource type="PackedScene" uid="uid://bubdl40lm1i25" path="res://scenes/music.tscn" id="15_4mrb1"]
 [ext_resource type="PackedScene" uid="uid://dvj6vxvrbcsu4" path="res://assets/conveyor_belt.glb" id="17_nd1g5"]
 [ext_resource type="Script" path="res://assets/cooler.gd" id="17_sq45y"]
 [ext_resource type="PackedScene" uid="uid://bpkb1ara7tb7p" path="res://assets/lever.glb" id="18_j6jvu"]
@@ -451,5 +452,7 @@ transform = Transform3D(-0.825025, 0.0858103, 0.0168073, 0.012154, -0.0453832, 0
 
 [node name="lever" parent="." instance=ExtResource("18_j6jvu")]
 transform = Transform3D(-9.65197e-09, 0, -0.220811, 0, 0.220811, 0, 0.220811, 0, -9.65197e-09, 3.49093, 0.297048, -1.00513)
+
+[node name="Music" parent="." instance=ExtResource("15_4mrb1")]
 
 [editable path="PlanStation2"]
