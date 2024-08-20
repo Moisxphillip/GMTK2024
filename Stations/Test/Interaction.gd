@@ -1,5 +1,7 @@
 extends Area3D
 
+const BUG_MINIGAME = preload("res://scenes/bug_minigame.tscn")
+
 @onready var animation = $Animation
 var isClose = false
 var playerReference = null
@@ -17,6 +19,13 @@ func _process(_delta):
 		Application.placed = Application.PLACED.TEST
 		playerReference.drop_item()
 		playerReference.isLockedOnAction = true
+		
+		var bug_happened = randf()
+		if bug_happened <= 0.4:
+			var bug_minigame = BUG_MINIGAME.instantiate()
+			bug_minigame.number_of_bugs_killed_to_end_game = 3
+			add_child(bug_minigame)
+
 	if  $SubViewport/TestStationUI.IsInteracting:
 		animation.play("Off")
 

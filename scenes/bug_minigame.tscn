@@ -18,15 +18,31 @@ texture = ExtResource("2_tim2x")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="SafeZone" type="Area2D" parent="."]
+visible = false
 input_pickable = false
 
 [node name="SafeZoneShape" type="CollisionShape2D" parent="SafeZone"]
+visible = false
 scale = Vector2(100, 100)
 shape = SubResource("CircleShape2D_hy505")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="RemainingBugs" type="RichTextLabel" parent="."]
+offset_left = 352.0
+offset_top = -280.0
+offset_right = 488.0
+offset_bottom = -240.0
+text = "Remaining Bugs: "
+
+[node name="RemainingBugsValue" type="RichTextLabel" parent="."]
+offset_left = 488.0
+offset_top = -280.0
+offset_right = 528.0
+offset_bottom = -240.0
+text = "VAL"
 
 [connection signal="area_exited" from="SafeZone" to="." method="_on_safe_zone_area_exited"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
