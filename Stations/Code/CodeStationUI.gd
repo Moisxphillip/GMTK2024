@@ -16,7 +16,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	elapsed_time += _delta
-	if IsInteracting and applicationReference != null:
+	if IsInteracting and Application.placed == Application.PLACED.CODE:
 		if Input.is_action_just_pressed("Complete"):
 			playerReference.isLockedOnAction = false
 			playerReference.take_item()
@@ -30,7 +30,7 @@ func _process(_delta):
 			executeCode()
 	
 func executeCode():
-	if applicationReference != null:
+	if Application.placed == Application.PLACED.CODE:
 		if last_produced + code_value_interval <= elapsed_time:
 			last_produced = elapsed_time
 			applicationReference.increaseCodeValue()

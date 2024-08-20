@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://brj51y2twawr7"]
+[gd_scene load_steps=17 format=3 uid="uid://brj51y2twawr7"]
 
 [ext_resource type="Script" path="res://scenes/scenario.gd" id="1_f5g0b"]
 [ext_resource type="PackedScene" uid="uid://b0uig1gnc4qp6" path="res://scenes/player.tscn" id="1_lp5fw"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dq3erjug3kbl0" path="res://Stations/Test/TestStation.tscn" id="9_gw6ib"]
 [ext_resource type="PackedScene" uid="uid://dsarpownpf85c" path="res://Stations/Server/ServerController.tscn" id="10_b8lhp"]
 [ext_resource type="Script" path="res://scripts/MoneyLabel.gd" id="10_r8tij"]
+[ext_resource type="PackedScene" uid="uid://bwpp6fkhru5b5" path="res://Stores/ApplicationStore.tscn" id="11_c77hv"]
+[ext_resource type="PackedScene" uid="uid://cwklujoqs7xso" path="res://Stores/Store.tscn" id="12_sm0bq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vpglr"]
 atlas = ExtResource("5_e4lil")
@@ -91,16 +93,12 @@ albedo_color = Color(0.027451, 0, 0.203922, 1)
 script = ExtResource("1_f5g0b")
 
 [node name="Application" parent="." instance=ExtResource("3_ut1ci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.361, 0)
-avg_code_value = 0.71
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0569937, 0.0958, -0.0251377)
 code_value_variance_percentage = 0.64
 rate_increase_code_value = 0.35
-avg_code_quality_percentage = 0.445
 rate_increase_quality_percentage = 0.33
 rate_decrease_quality_percentage = 0.295
-avg_cpu_comsuption = 0.37
 cpu_consuption_variance_percentage = 0.66
-avg_memory_comsuption = 0.505
 memory_comsuption_variance_percentage = 0.485
 
 [node name="GridMapWall" type="GridMap" parent="."]
@@ -217,3 +215,9 @@ script = ExtResource("10_r8tij")
 
 [node name="ServerController" parent="." instance=ExtResource("10_b8lhp")]
 transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 2, 0, -2)
+
+[node name="ApplicationStore" parent="." instance=ExtResource("11_c77hv")]
+visible = false
+
+[node name="Store" parent="." instance=ExtResource("12_sm0bq")]
+visible = false

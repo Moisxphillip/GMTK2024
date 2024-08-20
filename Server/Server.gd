@@ -7,6 +7,8 @@ var total_mem_usage: float = 0
 
 var elapsed_time = 0
 
+var server_online = true
+
 var requisitions_array = [
 	{
 		"cpu_usage": 10,
@@ -15,7 +17,8 @@ var requisitions_array = [
 	},
 ]
 
-
+#TODO Servidor cair com pico
+#TODO verificar se aplicação tem capacidade
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,6 +39,12 @@ func _process(delta):
 		else: 
 			new_array.append(req)
 	requisitions_array = new_array
+	
+	if total_CPU_usage >= CPU_capacity or total_mem_usage >= mem_capacity:
+		server_online = false
+		total_CPU_usage = 0
+		total_mem_usage = 0
+		requisitions_array = []
 	
 func add_req(cpu_usage:float, mem_usage:float, ttl:float):
 	var req = {

@@ -21,6 +21,8 @@ config/icon="res://icon.svg"
 SignalBus="*res://scripts/signal_bus.gd"
 Scenario="*res://scenes/scenario.gd"
 Money="*res://scripts/Money.gd"
+Application="*res://scripts/Application.gd"
+ApplicationStore="*res://Stores/ApplicationStore.gd"
 
 [input]
 

@@ -16,7 +16,7 @@ func _ready():
 func _process(_delta):
 	elapsed_time += _delta
 	
-	if IsInteracting and applicationReference != null:
+	if IsInteracting and Application.placed == Application.PLACED.TEST:
 		if Input.is_action_just_pressed("Complete"):
 			playerReference.isLockedOnAction = false
 			playerReference.take_item()
@@ -28,7 +28,7 @@ func _process(_delta):
 			executeTest()
 	
 func executeTest():
-	if applicationReference != null:
+	if Application.placed == Application.PLACED.TEST:
 		if last_produced + test_value_interval <= elapsed_time:
 			last_produced = elapsed_time
 			applicationReference.increaseCodeQuality()
