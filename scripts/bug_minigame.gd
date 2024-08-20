@@ -18,6 +18,7 @@ var total_bugs_killed = 0
 
 func _ready():
 	SignalBus.on_kill.connect(on_bug_killed)
+	$RemainingBugsValue.set_text(str(number_of_bugs_killed_to_end_game))
 	return
 
 func spawn_bug():
@@ -58,4 +59,6 @@ func on_bug_killed():
 	total_bugs_killed += 1
 	if total_bugs_killed >= number_of_bugs_killed_to_end_game:
 		queue_free()
+
+	$RemainingBugsValue.set_text(str(number_of_bugs_killed_to_end_game - total_bugs_killed))
 	return
