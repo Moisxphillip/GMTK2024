@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dsarpownpf85c"]
+[gd_scene load_steps=22 format=3 uid="uid://dsarpownpf85c"]
 
 [ext_resource type="Script" path="res://Stations/Server/ServerController.gd" id="1_vgays"]
 [ext_resource type="PackedScene" uid="uid://khkmb4qvwxwe" path="res://Stations/Server/ServerStationUI.tscn" id="1_vuen5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cqs1k12y2sypm" path="res://Server/RequisitionQueue.tscn" id="4_wqwii"]
 [ext_resource type="PackedScene" uid="uid://ck017jcttkvjx" path="res://Server/LoadBalancer.tscn" id="5_vnirg"]
 [ext_resource type="PackedScene" uid="uid://8xsymfihpq5t" path="res://Server/Server.tscn" id="6_tt87a"]
+[ext_resource type="Texture2D" uid="uid://87j4506eqabr" path="res://assets/wall.png" id="8_tu33f"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_331k1"]
 viewport_path = NodePath("SubViewport")
@@ -117,6 +118,9 @@ _data = {
 
 [sub_resource type="BoxMesh" id="BoxMesh_v64ul"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nii6"]
+albedo_texture = ExtResource("8_tu33f")
+
 [node name="ServerController" type="Node3D"]
 transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0, 0, 0)
 script = ExtResource("1_vgays")
@@ -185,6 +189,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31843, 0.467842, -0.146599)
 transform = Transform3D(0.316073, 0, 0, 0, 0.702091, 0, 0, 0, 0.26764, 0.0457376, 0.407401, 0.101393)
 mesh = SubResource("BoxMesh_v64ul")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3nii6")
 
 [connection signal="body_entered" from="Interaction" to="Interaction" method="_on_body_entered"]
 [connection signal="body_exited" from="Interaction" to="Interaction" method="_on_body_exited"]

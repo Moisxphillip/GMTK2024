@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://tdt0xhimmbcc"]
+[gd_scene load_steps=37 format=3 uid="uid://tdt0xhimmbcc"]
 
 [ext_resource type="Script" path="res://Stations/Plan/PlanInteraction.gd" id="1_psfms"]
 [ext_resource type="PackedScene" uid="uid://c6ion3ulkhbaq" path="res://Stations/Plan/PlanStationUI.tscn" id="2_xeq0a"]
-[ext_resource type="Texture2D" uid="uid://in03j4jt5h21" path="res://assets/code_station.png" id="3_4oix7"]
 [ext_resource type="Texture2D" uid="uid://w5u3xqfg2o0b" path="res://assets/button.png" id="4_8peb3"]
+[ext_resource type="Texture2D" uid="uid://byictg2sfybb2" path="res://assets/mid_screen.png" id="4_yw2ak"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_m3wio"]
 viewport_path = NodePath("PlanInteraction/SubViewport")
@@ -112,6 +112,159 @@ _data = {
 "RESET": SubResource("Animation_sem0y")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7y0b"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(0, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2mb7"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(39, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f05f"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(78, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7diwf"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(117, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l28rw"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(156, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3ryn"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(195, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8r0b"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(234, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dired"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(273, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcdt5"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(312, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbxcj"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(351, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmdow"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(390, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qt4m"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(429, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsf4k"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(468, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18mwy"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(507, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nvs1"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(546, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmxq4"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(585, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsuf2"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(624, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csu0a"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(663, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlvgo"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(702, 52, 39, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq1os"]
+atlas = ExtResource("4_yw2ak")
+region = Rect2(0, 0, 39, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ya3a7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7y0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2mb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f05f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7diwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l28rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3ryn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8r0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dired")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcdt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbxcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmdow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qt4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsf4k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18mwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nvs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmxq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsuf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csu0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlvgo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq1os")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}]
+
 [node name="PlanStation" type="Node3D"]
 transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0, 0, 0)
 
@@ -135,13 +288,6 @@ transparent_bg = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00355531, 0.0143127, -0.00219727)
 shape = SubResource("BoxShape3D_v1wkg")
 
-[node name="MachineSprite" type="Sprite3D" parent="PlanInteraction"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129018, 0)
-shaded = true
-alpha_cut = 2
-texture_filter = 0
-texture = ExtResource("3_4oix7")
-
 [node name="BodyCollider" type="StaticBody3D" parent="PlanInteraction"]
 
 [node name="BodyShape" type="CollisionShape3D" parent="PlanInteraction/BodyCollider"]
@@ -159,6 +305,11 @@ hframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_nexk5")
 }
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="PlanInteraction"]
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_ya3a7")
+frame_progress = 0.129104
 
 [connection signal="body_entered" from="PlanInteraction" to="PlanInteraction" method="_on_body_entered"]
 [connection signal="body_exited" from="PlanInteraction" to="PlanInteraction" method="_on_body_exited"]

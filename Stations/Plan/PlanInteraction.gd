@@ -6,6 +6,7 @@ var playerReference = null
 
 func _ready():
 	animation.play("Off")
+	$AnimatedSprite3D.play("default")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Interact") and isClose:
