@@ -14,6 +14,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var animation = $Animation
 @onready var applicationReference = $"../Application"
 
+func _process(delta):
+	if Application.placed == Application.PLACED.PLAYER:
+		take_item()
+		$"../Application".show()
+
+
 func _physics_process(_delta):
 	# Add the gravity.
 	#if not is_on_floor():

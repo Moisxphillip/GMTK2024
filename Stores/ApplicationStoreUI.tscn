@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwpp6fkhru5b5"]
+
+[ext_resource type="Script" path="res://Stores/ApplicationStoreUI.gd" id="1_r3anx"]
+[ext_resource type="PackedScene" uid="uid://c70rxscie0qye" path="res://Stores/ApplicationCard.tscn" id="2_nxmf8"]
+
+[node name="ApplicationStoreUI" type="CanvasLayer"]
+script = ExtResource("1_r3anx")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.499
+anchor_right = 0.499
+offset_left = -470.848
+offset_top = 42.0
+offset_right = 470.152
+offset_bottom = 586.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = 21.0
+offset_right = 938.0
+offset_bottom = 44.0
+pivot_offset = Vector2(21, -219)
+text = "APPLICATIONS"
+horizontal_alignment = 1
+
+[node name="Upgrades" type="ScrollContainer" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 55.0
+offset_right = -20.0
+offset_bottom = -22.0
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/Upgrades"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 6
+
+[node name="ApplicationCard" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_nxmf8")]
+layout_mode = 2
+
+[node name="ApplicationCard2" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_nxmf8")]
+layout_mode = 2
+
+[node name="ApplicationCard3" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_nxmf8")]
+layout_mode = 2
+
+[node name="ApplicationCard4" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_nxmf8")]
+layout_mode = 2
+
+[node name="ApplicationCard5" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_nxmf8")]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 7.0
+offset_right = -9.0
+offset_bottom = 41.0
+grow_horizontal = 0
+text = "x"
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]

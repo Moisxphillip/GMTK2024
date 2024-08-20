@@ -12,22 +12,28 @@ var is_building = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"../../Display".hide()
+	$DeployStationUI/ProgressBar.hide()
+	$DEPLOY.hide()
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if IsInteracting == true:
 		IsInteracting = false
 		is_building = true
 		elapsed_time = 0
+		$DeployStationUI/ProgressBar.show()
+		$DEPLOY.show()
 	if is_building:
 		elapsed_time += _delta
-		$TestStationUI/ProgressBar.value = elapsed_time/time_to_deploy * 100
+		$DeployStationUI/ProgressBar.value = elapsed_time/time_to_deploy * 100
 		if elapsed_time >= time_to_deploy:
-			playerReference.take_item()
+			Application.placed = Application.PLACED.PLAYER
 			is_building = false
-			$"../../Display".hide()
+			deploy_application()
+			$DeployStationUI/ProgressBar.hide()
+			$DEPLOY.hide()
 			#deploy no servidor
 
 func deploy_application():
-	pass
+	$"../../../../ServerController".deploy_application()
 		

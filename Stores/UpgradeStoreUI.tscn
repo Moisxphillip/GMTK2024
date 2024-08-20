@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwklujoqs7xso"]
+
+[ext_resource type="Script" path="res://Stores/UpgradeStoreUI.gd" id="1_84kxy"]
+[ext_resource type="PackedScene" uid="uid://db14pu0ku0pos" path="res://Stores/UpgradeCard.tscn" id="2_lipgo"]
+
+[node name="UpgradeStore" type="CanvasLayer"]
+script = ExtResource("1_84kxy")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.09
+anchor_top = 0.065
+anchor_right = 0.907
+anchor_bottom = 0.904
+offset_left = 0.319992
+offset_top = -0.120003
+offset_right = 0.135986
+offset_bottom = 0.207947
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 2.0
+offset_top = 21.0
+offset_right = 938.0
+offset_bottom = 44.0
+pivot_offset = Vector2(21, -219)
+text = "UPGRADES"
+horizontal_alignment = 1
+
+[node name="Upgrades" type="ScrollContainer" parent="Panel"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 117.0
+offset_right = -22.0
+offset_bottom = -76.0
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="Panel/Upgrades"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 7
+
+[node name="UpgradeCard2" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_lipgo")]
+layout_mode = 2
+
+[node name="UpgradeCard7" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_lipgo")]
+layout_mode = 2
+
+[node name="UpgradeCard8" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_lipgo")]
+layout_mode = 2
+
+[node name="UpgradeCard3" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_lipgo")]
+layout_mode = 2
+
+[node name="UpgradeCard4" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_lipgo")]
+layout_mode = 2
+
+[node name="UpgradeCard5" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_lipgo")]
+layout_mode = 2
+
+[node name="UpgradeCard6" parent="Panel/Upgrades/GridContainer" instance=ExtResource("2_lipgo")]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 7.0
+offset_right = -9.0
+offset_bottom = 41.0
+grow_horizontal = 0
+text = "x"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

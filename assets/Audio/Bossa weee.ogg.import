@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bdnmksbyg34qw"
+path="res://.godot/imported/Bossa weee.ogg-0cdef3352968412dcb881514d2a12f19.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Audio/Bossa weee.ogg"
+dest_files=["res://.godot/imported/Bossa weee.ogg-0cdef3352968412dcb881514d2a12f19.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

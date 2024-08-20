@@ -14,20 +14,18 @@ func _process(_delta):
 		$SubViewport/TestStationUI.IsInteracting = true
 		$SubViewport/TestStationUI.applicationReference = playerReference.applicationReference
 		$SubViewport/TestStationUI.playerReference = playerReference
+		Application.placed = Application.PLACED.TEST
 		playerReference.drop_item()
 		playerReference.isLockedOnAction = true
-	#if  $SubViewport/TestStationUI.IsInteracting:
-		#animation.play("Off")
+	if  $SubViewport/TestStationUI.IsInteracting:
+		animation.play("Off")
 
 
 func _on_body_entered(_body):
-	if _body.is_in_group("player") and _body.isHoldingApplication:
-		#if not $SubViewport/TestStationUI.IsInteracting:
-			#animation.play("On")
+	if _body.is_in_group("player") and Application.placed == Application.PLACED.PLAYER:
+		animation.play("On")
 		isClose = true
 		playerReference = _body
-	
-
 
 func _on_body_exited(_body):
 	isClose = false
