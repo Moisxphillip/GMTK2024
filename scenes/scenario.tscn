@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://brj51y2twawr7"]
+[gd_scene load_steps=32 format=3 uid="uid://brj51y2twawr7"]
 
 [ext_resource type="Script" path="res://scenes/scenario.gd" id="1_f5g0b"]
 [ext_resource type="PackedScene" uid="uid://b0uig1gnc4qp6" path="res://scenes/player.tscn" id="1_lp5fw"]
@@ -91,11 +91,26 @@ background_color = Color(0.55605, 0.714099, 0.834666, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ces0s"]
 albedo_color = Color(0.027451, 0, 0.203922, 1)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_vjfq6"]
+viewport_path = NodePath("PlanInteraction/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ipdtp"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_vjfq6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46w88"]
+size = Vector3(5.94446, 1, 1.39404)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxnbi"]
+size = Vector3(1, 1, 4.66196)
+
 [node name="Scenario" type="Node3D"]
 script = ExtResource("1_f5g0b")
 
 [node name="Application" parent="." instance=ExtResource("3_ut1ci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0569937, 0.0958, -0.0251377)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.361, 0)
 code_value_variance_percentage = 0.64
 rate_increase_code_value = 0.35
 rate_increase_quality_percentage = 0.33
@@ -104,7 +119,7 @@ cpu_consuption_variance_percentage = 0.66
 memory_comsuption_variance_percentage = 0.485
 
 [node name="GridMapWall" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.128, 0, -0.9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13302, 0, -0.898551)
 mesh_library = ExtResource("2_vj7ey")
 cell_size = Vector3(0.2, 0.2, 0.2)
 cell_center_y = false
@@ -237,3 +252,39 @@ transform = Transform3D(0.036527, 0, 0.613914, 0, 0.615, 0, -0.613914, 0, 0.0365
 
 [node name="PlanStation2" parent="." instance=ExtResource("14_506bh")]
 transform = Transform3D(-0.188278, 0, 0.58547, 0, 0.615, 0, -0.58547, 0, -0.188278, 2.15274, 0, -0.484853)
+
+[node name="Display" parent="PlanStation2/PlanInteraction" index="0"]
+transform = Transform3D(-0.0794391, 0, -1.00202, 0, 0.818596, 0, 1.35549, 0, -0.0587237, 0.0217919, 0.400787, 0.0678239)
+visible = false
+material_override = SubResource("StandardMaterial3D_ipdtp")
+
+[node name="InteractShape" parent="PlanStation2/PlanInteraction" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00355488, 0.0143127, -0.120239)
+
+[node name="WallCollider" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.635803, 0.439206, 0.996288)
+shape = SubResource("BoxShape3D_46w88")
+
+[node name="WallCollider2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.39211)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCollider2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.635803, 0.439206, 0.996288)
+shape = SubResource("BoxShape3D_46w88")
+
+[node name="WallCollider3" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCollider3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77006, 0.488927, -0.582657)
+shape = SubResource("BoxShape3D_wxnbi")
+
+[node name="WallCollider4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78434, -0.0405648, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallCollider4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77006, 0.488927, -0.582657)
+shape = SubResource("BoxShape3D_wxnbi")
+
+[editable path="PlanStation2"]
