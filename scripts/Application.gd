@@ -28,44 +28,44 @@ var avg_cpu_comsuption: float = 0
 # average memory comsuption
 var avg_memory_comsuption: float = 0
 @export var memory_comsuption_variance_percentage: float = 0.2
-	
+    
 func _ready():
-	
-	hide()
-	
+    
+    hide()
+    
 #increase code value
 func increaseCodeValue():
-	if code_progress <= code_size:
-		avg_code_value += avg_code_value*rate_increase_code_value
-		avg_code_quality_percentage -= rate_decrease_quality_percentage
-		avg_code_quality_percentage = clamp(avg_code_quality_percentage,0,100)
-		code_progress+=1
-	
+    if code_progress <= code_size:
+        avg_code_value += avg_code_value*rate_increase_code_value
+        avg_code_quality_percentage -= rate_decrease_quality_percentage
+        avg_code_quality_percentage = clamp(avg_code_quality_percentage,0,100)
+        code_progress+=1
+    
 #generate value
 func increaseCodeQuality():
-	avg_code_quality_percentage += rate_increase_quality_percentage
-	avg_code_quality_percentage = clamp(avg_code_quality_percentage,0,100)
+    avg_code_quality_percentage += rate_increase_quality_percentage
+    avg_code_quality_percentage = clamp(avg_code_quality_percentage,0,100)
 
 func generateValueFromCode():
-	var variance = code_value_variance_percentage*avg_code_value
-	return randi_range (avg_code_value - variance, avg_code_value+variance)
+    var variance = code_value_variance_percentage*avg_code_value
+    return randi_range (avg_code_value - variance, avg_code_value+variance)
 
 func generateCPUComsuption():
-	var variance = cpu_consuption_variance_percentage*avg_cpu_comsuption
-	var res = randf_range (avg_cpu_comsuption - variance, avg_cpu_comsuption+variance)
-	return res
-	
+    var variance = cpu_consuption_variance_percentage*avg_cpu_comsuption
+    var res = randf_range (avg_cpu_comsuption - variance, avg_cpu_comsuption+variance)
+    return res
+    
 func generateMemoryComsuption():
-	var variance = memory_comsuption_variance_percentage*avg_memory_comsuption
-	return randf_range (avg_memory_comsuption - variance, avg_memory_comsuption+variance)
-	
+    var variance = memory_comsuption_variance_percentage*avg_memory_comsuption
+    return randf_range (avg_memory_comsuption - variance, avg_memory_comsuption+variance)
+    
 func load_application(application):
-	application_name = application["name"]
-	application_description = application["description"]
-	avg_cpu_comsuption = application["average_cpu"]
-	avg_memory_comsuption = application["average_mem"]
-	avg_code_value = application["code_value"]
-	avg_code_quality_percentage = application["code_quality"]
-	code_progress = application["code_progress"]
-	code_size = application["code_size"]
+    application_name = application["name"]
+    application_description = application["description"]
+    avg_cpu_comsuption = application["average_cpu"]
+    avg_memory_comsuption = application["average_mem"]
+    avg_code_value = application["code_value"]
+    avg_code_quality_percentage = application["code_quality"]
+    code_progress = application["code_progress"]
+    code_size = application["code_size"]
 
