@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4hlnut7lglaf"]
+
+[ext_resource type="PackedScene" uid="uid://dca24tciapvo6" path="res://assets/cooler.glb" id="1_3wsw2"]
+[ext_resource type="Script" path="res://cooler.gd" id="2_5txbr"]
+
+[node name="cooler" instance=ExtResource("1_3wsw2")]
+script = ExtResource("2_5txbr")
+
+[node name="Fan" parent="." index="0"]
+transform = Transform3D(0.434764, 0.900545, 0, -0.900545, 0.434764, 0, 0, 0, 1, 0, 0, 0)
