@@ -1,0 +1,188 @@
+[gd_scene load_steps=19 format=3 uid="uid://dsarpownpf85c"]
+
+[ext_resource type="PackedScene" uid="uid://khkmb4qvwxwe" path="res://Stations/Server/ServerStationUI.tscn" id="1_vuen5"]
+[ext_resource type="Texture2D" uid="uid://in03j4jt5h21" path="res://assets/code_station.png" id="3_6tsm3"]
+[ext_resource type="Texture2D" uid="uid://w5u3xqfg2o0b" path="res://assets/button.png" id="4_07gtu"]
+[ext_resource type="PackedScene" uid="uid://cqs1k12y2sypm" path="res://Server/RequisitionQueue.tscn" id="4_wqwii"]
+[ext_resource type="PackedScene" uid="uid://ck017jcttkvjx" path="res://Server/LoadBalancer.tscn" id="5_vnirg"]
+[ext_resource type="PackedScene" uid="uid://8xsymfihpq5t" path="res://Server/Server.tscn" id="6_tt87a"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_331k1"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3valc"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_331k1")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wbgvw"]
+viewport_path = NodePath("Interaction/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdgl1"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_wbgvw")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_rpjyf"]
+material = SubResource("StandardMaterial3D_vdgl1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1wkg"]
+size = Vector3(0.262848, 0.35199, 0.272949)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r1dhf"]
+size = Vector3(0.314362, 0.341064, 0.173401)
+
+[sub_resource type="Animation" id="Animation_0hds7"]
+resource_name = "Off"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2a3qt"]
+resource_name = "On"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_sem0y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nexk5"]
+_data = {
+"Off": SubResource("Animation_0hds7"),
+"On": SubResource("Animation_2a3qt"),
+"RESET": SubResource("Animation_sem0y")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_v64ul"]
+
+[node name="ServerController" type="Node3D"]
+transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0, 0, 0)
+
+[node name="Display" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.35782, 0, 0, 0, 0.818596, 0, 0, 0, 1.00374, 0.107543, 0.720296, 0.341976)
+material_override = SubResource("StandardMaterial3D_3valc")
+mesh = SubResource("QuadMesh_rpjyf")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="ServerStationUI" parent="SubViewport" instance=ExtResource("1_vuen5")]
+offset_left = 102.0
+offset_top = 518.5
+offset_right = 142.0
+offset_bottom = 558.5
+
+[node name="Interaction" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0857514, 0.442632, 0.0871172)
+visible = false
+
+[node name="InteractShape" type="CollisionShape3D" parent="Interaction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00355531, 0.0143127, -0.00219727)
+visible = false
+shape = SubResource("BoxShape3D_v1wkg")
+
+[node name="MachineSprite" type="Sprite3D" parent="Interaction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129018, 0)
+visible = false
+shaded = true
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("3_6tsm3")
+
+[node name="BodyCollider" type="StaticBody3D" parent="Interaction"]
+visible = false
+
+[node name="BodyShape" type="CollisionShape3D" parent="Interaction/BodyCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00135803, -0.0284424, -0.063324)
+visible = false
+shape = SubResource("BoxShape3D_r1dhf")
+
+[node name="ButtonSprite" type="Sprite3D" parent="Interaction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57109, 0)
+visible = false
+texture_filter = 0
+texture = ExtResource("4_07gtu")
+hframes = 2
+
+[node name="Animation" type="AnimationPlayer" parent="Interaction"]
+libraries = {
+"": SubResource("AnimationLibrary_nexk5")
+}
+
+[node name="RequisitionQueue" parent="." instance=ExtResource("4_wqwii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90458, 0.532429, -0.0532783)
+
+[node name="LoadBalancer" parent="." instance=ExtResource("5_vnirg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31843, 0.467842, -0.146599)
+
+[node name="Server2" parent="LoadBalancer" instance=ExtResource("6_tt87a")]
+
+[node name="Desk" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.316073, 0, 0, 0, 0.702091, 0, 0, 0, 0.26764, 0.0457376, 0.407401, 0.101393)
+mesh = SubResource("BoxMesh_v64ul")
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="Interaction" to="Interaction" method="_on_body_entered"]
+[connection signal="body_exited" from="Interaction" to="Interaction" method="_on_body_exited"]

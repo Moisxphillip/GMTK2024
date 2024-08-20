@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://jqoyt6w5j837"]
+[gd_scene load_steps=3 format=3 uid="uid://jqoyt6w5j837"]
 
-[ext_resource type="PackedScene" uid="uid://c8hujqsj10jys" path="res://scenes/floor.tscn" id="1_eq3o1"]
+[ext_resource type="PackedScene" uid="uid://c8hujqsj10jys" path="res://assets/meshes/floor.tscn" id="1_eq3o1"]
+[ext_resource type="PackedScene" uid="uid://cguf8ydjb0hpc" path="res://assets/meshes/wall.tscn" id="2_euwpo"]
 
 [node name="Library" type="Node3D"]
 
 [node name="Floor" parent="." instance=ExtResource("1_eq3o1")]
+
+[node name="wall" parent="." instance=ExtResource("2_euwpo")]
+transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 0, 0.1, -0.1)

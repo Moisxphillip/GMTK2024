@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://khkmb4qvwxwe"]
+
+[ext_resource type="Script" path="res://Stations/Server/ServerStationUI.gd" id="1_6htpw"]
+
+[node name="ServerStationUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6htpw")
+
+[node name="ServerStationUI" type="CanvasLayer" parent="."]
+
+[node name="CPUBar" type="ProgressBar" parent="ServerStationUI"]
+offset_left = 69.0
+offset_top = 61.0
+offset_right = 120.0
+offset_bottom = 601.0
+fill_mode = 3
+
+[node name="MemBar" type="ProgressBar" parent="ServerStationUI"]
+offset_left = 350.0
+offset_top = 61.0
+offset_right = 401.0
+offset_bottom = 601.0
+fill_mode = 3

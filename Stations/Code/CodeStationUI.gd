@@ -1,45 +1,40 @@
 extends Control
 
 var IsInteracting = false
-@onready var CodeStation = get_node("../../../../CodeStation")
-@onready var Player = get_node("../../../../Player")
-var application = null
-
+var applicationReference = null
+var playerReference = null
+@export var building_time: float
+@export var code_value_interval: float = 1
+@onready var animation = $CodeStationUI/Animation
+var elapsed_time: float = 0
+var last_produced = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    $CodeStationUI/StopButton.hide()
-    $CodeStationUI/LabelCodingState.hide()
-    pass # Replace with function body.
-
-
+	$"../../Display".hide()
+	$CodeStationUI/Particles.emitting = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-    application = CodeStation.applicationReference
-    
-
-    
+	elapsed_time += _delta
+	if IsInteracting and applicationReference != null:
+		if Input.is_action_just_pressed("Complete"):
+			playerReference.isLockedOnAction = false
+			playerReference.take_item()
+			$CodeStationUI/ProgressBar.show()
+			animation.play("load")
+			IsInteracting = false
+			$CodeStationUI/Particles.emitting = false
+			$"../../Display".hide()
+		else:
+			$CodeStationUI/Particles.emitting = true
+			executeCode()
+	
 func executeCode():
-    pass
+	if applicationReference != null:
+		if last_produced + code_value_interval <= elapsed_time:
+			last_produced = elapsed_time
+			applicationReference.increaseCodeValue()
+		
+	
 
-func _on_code_button_pressed():
-    $CodeStationUI/CodeButton.hide()
-    $CodeStationUI/LabelCodingState.show()
-    $CodeStationUI/StopButton.show()
-    
-    
-
-    Player.get_node("HandRemoteTransform").remote_path = ""
-    #Scenario.Application.position = Vector3(0,0,0)
-    
-        
-        
-
-func _on_stop_button_pressed():
-    $CodeStationUI/CodeButton.show()
-    $CodeStationUI/LabelCodingState.hide()
-    $CodeStationUI/StopButton.hide()
-
-func _on_build_button_pressed():
-    Player.get_node("HandRemoteTransform").remote_path = "../../Application"
-        
+		

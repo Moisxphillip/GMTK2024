@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://btqosc52ath5r"]
+
+[node name="ServerStationUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 572.0
+offset_bottom = 647.0
+
+[node name="ServerStationUI" type="CanvasLayer" parent="."]
+
+[node name="CPUBar" type="ProgressBar" parent="ServerStationUI"]
+offset_left = 59.0
+offset_top = 128.0
+offset_right = 124.0
+offset_bottom = 583.0
+fill_mode = 3
+
+[node name="memBar" type="ProgressBar" parent="ServerStationUI"]
+offset_left = 354.0
+offset_top = 130.0
+offset_right = 419.0
+offset_bottom = 585.0
+fill_mode = 3

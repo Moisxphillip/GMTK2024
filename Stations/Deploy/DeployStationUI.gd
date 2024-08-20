@@ -1,29 +1,32 @@
 extends Control
 
-@onready var DeployStation = get_node("../../../../DeployStation")
-@onready var Player = get_node("../../../../Player")
-@export var progress_rate = 10
-var loading = false
+@export var time_to_deploy:float = 2
 
+var IsInteracting = false
+var applicationReference = null
+var playerReference = null
+var elapsed_time: float = 0
+var last_produced = 0
+
+var is_building = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$DeployStationUI/ProgressBar.hide()
-
+	$"../../Display".hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if loading:
-		$DeployStationUI/ProgressBar.value += delta*progress_rate
-		if $DeployStationUI/ProgressBar.value >= 100:
-			$DeployStationUI/DeployButton.show()
-			$DeployStationUI/ProgressBar.hide()
-			$DeployStationUI/ProgressBar.value = 0
-			loading = false
-			
-
-func _on_deploy_button_pressed():
-	$DeployStationUI/DeployButton.hide()
-	$DeployStationUI/ProgressBar.show()
+func _process(_delta):
+	if IsInteracting == true:
+		IsInteracting = false
+		is_building = true
+		elapsed_time = 0
+	if is_building:
+		elapsed_time += _delta
+		$TestStationUI/ProgressBar.value = elapsed_time/time_to_deploy * 100
 	
-	$DeployStationUI/ProgressBar.value = 0
-	loading = true
+		if elapsed_time >= time_to_deploy:
+			playerReference.take_item()
+			is_building = false
+			$"../../Display".hide()
+			#deploy no servidor
+
+		
