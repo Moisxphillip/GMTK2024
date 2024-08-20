@@ -1,12 +1,85 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvy2a7byi0mwn"]
+[gd_scene load_steps=12 format=3 uid="uid://bvy2a7byi0mwn"]
 
 [ext_resource type="Script" path="res://scripts/Application.gd" id="1_g0jci"]
+[ext_resource type="Texture2D" uid="uid://bqkgby3kkuinu" path="res://assets/box.png" id="2_g5d5t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5u6u"]
+atlas = ExtResource("2_g5d5t")
+region = Rect2(0, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sisum"]
+atlas = ExtResource("2_g5d5t")
+region = Rect2(20, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rj1p"]
+atlas = ExtResource("2_g5d5t")
+region = Rect2(40, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loj4a"]
+atlas = ExtResource("2_g5d5t")
+region = Rect2(60, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab4pj"]
+atlas = ExtResource("2_g5d5t")
+region = Rect2(80, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlnyg"]
+atlas = ExtResource("2_g5d5t")
+region = Rect2(100, 0, 20, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n0dut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5u6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sisum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rj1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loj4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab4pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlnyg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_qhkvq"]
+script/source = "extends AnimatedSprite3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	play(\"default\")
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="BoxMesh" id="BoxMesh_s6epv"]
 
 [node name="Application" type="Node3D"]
 script = ExtResource("1_g0jci")
 
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0520346, 0.0537508)
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_n0dut")
+script = SubResource("GDScript_qhkvq")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_s6epv")

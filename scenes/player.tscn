@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b0uig1gnc4qp6"]
+[gd_scene load_steps=15 format=3 uid="uid://b0uig1gnc4qp6"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5d2rc"]
 [ext_resource type="Texture2D" uid="uid://b0hi53luca4cu" path="res://assets/playerbot.png" id="2_tdjor"]
@@ -163,6 +163,20 @@ _data = {
 "Up": SubResource("Animation_dl8l1")
 }
 
+[sub_resource type="GDScript" id="GDScript_017gg"]
+script/source = "extends Camera3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.196, 0)
 script = ExtResource("1_5d2rc")
@@ -188,3 +202,4 @@ movie_quit_on_finish = true
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.930737, 0.365689, 0, -0.365689, 0.930737, 0, 0.627609, 1.46958)
 doppler_tracking = 1
+script = SubResource("GDScript_017gg")

@@ -7,4 +7,4 @@
 script = ExtResource("2_5txbr")
 
 [node name="Fan" parent="." index="0"]
-transform = Transform3D(0.434764, 0.900545, 0, -0.900545, 0.434764, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.976704, 0.214589, 0, -0.214589, 0.976704, 0, 0, 0, 1, 0, 0, 0)
