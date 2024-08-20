@@ -30,6 +30,7 @@ var avg_memory_comsuption: float = 0
 @export var memory_comsuption_variance_percentage: float = 0.2
 	
 func _ready():
+	
 	hide()
 	
 #increase code value
