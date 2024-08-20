@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://jko1vf7g07uf" path="res://Stations/Code/CodeStation.tscn" id="4_50rqp"]
 [ext_resource type="Texture2D" uid="uid://bqkgby3kkuinu" path="res://assets/box.png" id="5_e4lil"]
 [ext_resource type="PackedScene" uid="uid://mclbdsbbs8qq" path="res://Stations/Deploy/DeployStation.tscn" id="6_dtob3"]
+[ext_resource type="PackedScene" uid="uid://cw3q6grenvqni" path="res://scenes/desk.tscn" id="8_v0242"]
 [ext_resource type="PackedScene" uid="uid://dq3erjug3kbl0" path="res://Stations/Test/TestStation.tscn" id="9_gw6ib"]
 [ext_resource type="PackedScene" uid="uid://dsarpownpf85c" path="res://Stations/Server/ServerController.tscn" id="10_b8lhp"]
 [ext_resource type="Script" path="res://scripts/MoneyLabel.gd" id="10_r8tij"]
@@ -82,8 +83,6 @@ func _process(delta):
 [sub_resource type="Environment" id="Environment_hlb8c"]
 background_mode = 1
 background_color = Color(0.55605, 0.714099, 0.834666, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_6eghq"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_gahyl"]
 
@@ -175,26 +174,17 @@ environment = SubResource("Environment_hlb8c")
 [node name="DeployStation" parent="." instance=ExtResource("6_dtob3")]
 transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, 0.806896, 0, -1.61746)
 
-[node name="Desk" type="MeshInstance3D" parent="DeployStation"]
-transform = Transform3D(0.969413, 0, 0, 0, 0.21475, 0, 0, 0, 0.668878, 0.0210406, 0.167778, -0.20296)
-mesh = SubResource("BoxMesh_6eghq")
-skeleton = NodePath("../..")
-
 [node name="CodeStation" parent="." instance=ExtResource("4_50rqp")]
 transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, -1.43999, 0.0681784, -1.14294)
 
-[node name="Desk" type="MeshInstance3D" parent="CodeStation"]
-transform = Transform3D(0.969413, 0, 0, 0, 0.21475, 0, 0, 0, 0.668878, 0.0210406, 0.167778, -0.20296)
-mesh = SubResource("BoxMesh_6eghq")
-skeleton = NodePath("../..")
+[node name="Desk" parent="CodeStation" instance=ExtResource("8_v0242")]
+transform = Transform3D(0.37, 0, 0, 0, 0.335, 0, 0, 0, 0.368, 0.0877495, 0.0505568, 0.0102016)
 
 [node name="TestStation" parent="." instance=ExtResource("9_gw6ib")]
 transform = Transform3D(0.615, 0, 0, 0, 0.615, 0, 0, 0, 0.615, -0.38799, 0.00420356, -1.51051)
 
-[node name="Desk" type="MeshInstance3D" parent="TestStation"]
-transform = Transform3D(0.969413, 0, 0, 0, 0.21475, 0, 0, 0, 0.668878, 0.0210404, 0.167778, -0.20296)
-mesh = SubResource("BoxMesh_6eghq")
-skeleton = NodePath("../..")
+[node name="Desk" parent="TestStation" instance=ExtResource("8_v0242")]
+transform = Transform3D(0.37, 0, 0, 0, 0.29, 0, 0, 0, 0.368, 0.0849854, 0.130656, 0.0344853)
 
 [node name="Wall" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.34367, 0, 0, 0, 1.6984, 0, 0, 0, 1, -0.455654, 0.847953, -2.79306)
@@ -251,6 +241,9 @@ material_override = SubResource("StandardMaterial3D_ipdtp")
 
 [node name="InteractShape" parent="PlanStation2/PlanInteraction" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00355488, 0.0143127, -0.120239)
+
+[node name="Desk" parent="PlanStation2" instance=ExtResource("8_v0242")]
+transform = Transform3D(0.37, 0, 0, 0, 0.29, 0, 1.49012e-08, 0, 0.368, 0.0100078, 0.0830135, 0.0831194)
 
 [node name="WallCollider" type="StaticBody3D" parent="."]
 

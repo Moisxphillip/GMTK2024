@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw3q6grenvqni"]
+
+[ext_resource type="Texture2D" uid="uid://87j4506eqabr" path="res://assets/wall.png" id="1_ncek1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6eghq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayxrs"]
+albedo_texture = ExtResource("1_ncek1")
+texture_filter = 2
+
+[node name="Desk" type="MeshInstance3D"]
+transform = Transform3D(0.37, 0, 0, 0, 0.29, 0, 0, 0, 0.368, 0.00336766, -0.333393, -0.0589976)
+mesh = SubResource("BoxMesh_6eghq")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ayxrs")

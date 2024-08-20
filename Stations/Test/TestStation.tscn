@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Stations/Test/Interaction.gd" id="1_hlwgq"]
 [ext_resource type="PackedScene" uid="uid://dxvk34wve7au7" path="res://Stations/Test/TestStationUI.tscn" id="2_is7mk"]
-[ext_resource type="Texture2D" uid="uid://in03j4jt5h21" path="res://assets/code_station.png" id="3_qdc5q"]
+[ext_resource type="Texture2D" uid="uid://bhjb7x1ah6sce" path="res://assets/deploy_station.png" id="3_076b4"]
 [ext_resource type="Texture2D" uid="uid://w5u3xqfg2o0b" path="res://assets/button.png" id="4_jivko"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_m3wio"]
@@ -140,7 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.129018, 0)
 shaded = true
 alpha_cut = 2
 texture_filter = 0
-texture = ExtResource("3_qdc5q")
+texture = ExtResource("3_076b4")
 
 [node name="BodyCollider" type="StaticBody3D" parent="Interaction"]
 
