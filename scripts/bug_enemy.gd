@@ -7,6 +7,11 @@ func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int):
     return
 
 func die():
-    queue_free()
+    $Death.play()
     SignalBus.on_kill.emit() # Tell the game this bug died
     return
+
+
+func _on_death_finished():
+    queue_free()
+    pass # Replace with function body.

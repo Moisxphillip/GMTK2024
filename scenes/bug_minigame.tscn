@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxqmu8op6i3aj"]
+[gd_scene load_steps=4 format=3 uid="uid://dxqmu8op6i3aj"]
 
 [ext_resource type="Script" path="res://scripts/bug_minigame.gd" id="1_2r70d"]
+[ext_resource type="Texture2D" uid="uid://df0x0cmururdg" path="res://assets/BG.png" id="2_tim2x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hy505"]
 radius = 12.804
@@ -10,6 +11,9 @@ script = ExtResource("1_2r70d")
 min_enemy_bug_speed = Vector2(150, 150)
 max_enemy_bug_speed = Vector2(300, 300)
 friendly_bug_odds = 0.6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tim2x")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

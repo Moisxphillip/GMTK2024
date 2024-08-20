@@ -25,6 +25,10 @@ Application="*res://scripts/Application.gd"
 ApplicationStore="*res://Stores/ApplicationStore.gd"
 UpgradeStore="*res://Stores/UpgradeStore.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 Up={

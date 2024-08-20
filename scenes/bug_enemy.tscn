@@ -2,12 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://cj8l1hiifye1v" path="res://scenes/bug_base.tscn" id="1_xky17"]
 [ext_resource type="Script" path="res://scripts/bug_enemy.gd" id="2_u5fpl"]
-[ext_resource type="Texture2D" uid="uid://cekr8jvr76dm1" path="res://assets/bug_enemy.png" id="3_dgfgl"]
+[ext_resource type="Texture2D" uid="uid://y5jbl6v865" path="res://assets/bug_enemy.png" id="3_7p5nr"]
 
 [node name="BugEnemy" instance=ExtResource("1_xky17")]
 script = ExtResource("2_u5fpl")
 
 [node name="Bug" type="Sprite2D" parent="." index="1"]
-position = Vector2(2.38419e-07, 2.38419e-07)
-scale = Vector2(0.21875, 0.21875)
-texture = ExtResource("3_dgfgl")
+position = Vector2(0.500001, 0.500001)
+scale = Vector2(0.246094, 0.246094)
+texture = ExtResource("3_7p5nr")
+
+[connection signal="finished" from="Death" to="." method="_on_death_finished"]
