@@ -6,10 +6,75 @@
 [ext_resource type="PackedScene" uid="uid://cjovf8wurxmmy" path="res://scenes/interaction.tscn" id="3_3i7yv"]
 [ext_resource type="PackedScene" uid="uid://bvy2a7byi0mwn" path="res://scenes/Application.tscn" id="3_ut1ci"]
 [ext_resource type="PackedScene" uid="uid://jko1vf7g07uf" path="res://Stations/Code/CodeStation.tscn" id="4_50rqp"]
+[ext_resource type="Texture2D" uid="uid://bqkgby3kkuinu" path="res://assets/box.png" id="5_e4lil"]
 [ext_resource type="PackedScene" uid="uid://mclbdsbbs8qq" path="res://Stations/Deploy/DeployStation.tscn" id="6_dtob3"]
 [ext_resource type="PackedScene" uid="uid://dq3erjug3kbl0" path="res://Stations/Test/TestStation.tscn" id="9_gw6ib"]
 [ext_resource type="PackedScene" uid="uid://dsarpownpf85c" path="res://Stations/Server/ServerController.tscn" id="10_b8lhp"]
 [ext_resource type="Script" path="res://scripts/MoneyLabel.gd" id="10_r8tij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpglr"]
+atlas = ExtResource("5_e4lil")
+region = Rect2(0, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqawo"]
+atlas = ExtResource("5_e4lil")
+region = Rect2(20, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33l3d"]
+atlas = ExtResource("5_e4lil")
+region = Rect2(40, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt0hg"]
+atlas = ExtResource("5_e4lil")
+region = Rect2(60, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4v8h"]
+atlas = ExtResource("5_e4lil")
+region = Rect2(80, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5830"]
+atlas = ExtResource("5_e4lil")
+region = Rect2(100, 0, 20, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3uxv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpglr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqawo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33l3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt0hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4v8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5830")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_5iya3"]
+script/source = "extends AnimatedSprite3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	play(\"default\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="Environment" id="Environment_hlb8c"]
 background_mode = 1
@@ -26,7 +91,7 @@ albedo_color = Color(0.027451, 0, 0.203922, 1)
 script = ExtResource("1_f5g0b")
 
 [node name="Application" parent="." instance=ExtResource("3_ut1ci")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0569937, 0.0958, -0.0251377)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.361, 0)
 avg_code_value = 0.71
 code_value_variance_percentage = 0.64
 rate_increase_code_value = 0.35
@@ -75,8 +140,16 @@ transform = Transform3D(1, 0, 0, 0, 0.0519003, 0.998652, 0, -0.998652, 0.0519003
 visible = false
 
 [node name="HandRemoteTransform" type="RemoteTransform3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0569937, -0.1002, -0.0251377)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.165, 0)
 remote_path = NodePath("../../Application")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Player/HandRemoteTransform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.02)
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_o3uxv")
+frame = 5
+frame_progress = 0.697092
+script = SubResource("GDScript_5iya3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.9289, -0.0981067, -0.357099, 0.314195, 0.719195, 0.61971, 0.196026, -0.687848, 0.698885, -3.01859, 3.33417, 2.98596)
