@@ -16,10 +16,28 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = 42.0
-offset_right = 54.0
-offset_bottom = -108.0
+offset_left = -113.0
+offset_top = 31.0
+offset_right = -57.0
+offset_bottom = -119.0
 grow_horizontal = 2
 grow_vertical = 2
 fill_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 145.0
+offset_top = -17.0
+offset_right = 390.0
+offset_bottom = 71.0
+theme_override_font_sizes/font_size = 64
+text = "DEPLOY"
+
+[node name="DEPLOY" type="Label" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 527.0
+offset_right = 436.0
+offset_bottom = 561.0
+theme_override_font_sizes/font_size = 24
+text = "DEPLOYING..."

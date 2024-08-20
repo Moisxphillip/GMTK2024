@@ -1,6 +1,6 @@
 extends Node
 
-@export var current_amount_of_money: float = 0
+@export var current_amount_of_money: float = 100000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

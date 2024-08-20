@@ -18,7 +18,6 @@ var requisitions_array = [
 ]
 
 #TODO Servidor cair com pico
-#TODO verificar se aplicação tem capacidade
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,7 +54,6 @@ func add_req(cpu_usage:float, mem_usage:float, ttl:float):
 	total_CPU_usage += cpu_usage
 	total_mem_usage += mem_usage
 	Money.add_money(1)
-	print(Money.current_amount_of_money)
 	requisitions_array.append(req)
 	
 	

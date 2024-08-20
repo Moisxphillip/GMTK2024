@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwpp6fkhru5b5"]
-
-[ext_resource type="Script" path="res://Stores/ApplicationStore.gd" id="1_fvi61"]
-
-[node name="ApplicationStore" type="CanvasLayer"]
-script = ExtResource("1_fvi61")

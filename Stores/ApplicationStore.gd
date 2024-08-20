@@ -1,19 +1,9 @@
 extends CanvasLayer
 
-var active_appication_index = 0
-@onready var Application = $"../Application"
-
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Application.placed == Application.PLACED.PLAN:
-		if Application.application_index != active_appication_index:
-			save_application(Application.application_index)
-		Application.load_application(get_active_application())
-	pass
+var active_appication_index = -1
+var isInteracting = false
+var hasStarted = false
+@onready var Application = $"../Application"	
 	
 func save_application(app_index):
 	applications[app_index]["code_value"] = Application.avg_code_value
@@ -21,23 +11,33 @@ func save_application(app_index):
 	applications[app_index]["code_progress"] = Application.code_progress
 	
 func buy(application_idx):
+	if Application.application_index != active_appication_index and Application.application_index != -1:
+		save_application(Application.application_index)
+	
 	if applications[application_idx]["paid"]:
 		active_appication_index = application_idx
+		Application.load_application(ApplicationStore.get_active_application())
+		Application.placed = Application.PLACED.PLAYER
+		return true
 	elif Money.current_amount_of_money >= applications[application_idx]["price"]:
 		Money.take_money(applications[application_idx]["price"])
 		applications[application_idx]["paid"] = true
 		active_appication_index = application_idx
+		Application.load_application(ApplicationStore.get_active_application())
+		Application.placed = Application.PLACED.PLAYER
+		return true
 	else:
-		#TODO print to user not enough mouney
-		pass
+		return false
 	
 func get_active_application():
 	return applications[active_appication_index]
 	
 var applications = [
 	{
+		"code_value":10.0,
+		"code_quality":0,
 		"price":0,
-		"paid":true,
+		"paid":false,
 		"name":"Landing Page",
 		"description":"A simple landing page for a company.",
 		"requires_cpu":100,
@@ -49,8 +49,6 @@ var applications = [
 		"sec_probability":0.02,
 		"sec_difficulty": 1,
 		"peak_probability": 0.05,
-		"code_value":10,
-		"code_quality":0,
 		"code_size":100,
 		"code_progress":0,
 		"image":null,

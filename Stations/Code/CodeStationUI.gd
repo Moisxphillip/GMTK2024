@@ -11,20 +11,23 @@ var last_produced = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"../../Display".hide()
 	$CodeStationUI/Particles.emitting = false
+	$CodeStationUI/BUILD.hide()
+	$CodeStationUI/ProgressBar.hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	elapsed_time += _delta
+	$CodeStationUI/ProgressBar.value = Application.code_progress 
 	if IsInteracting and Application.placed == Application.PLACED.CODE:
+		$CodeStationUI/ProgressBar.show()
+		$CodeStationUI/BUILD.show()
 		if Input.is_action_just_pressed("Complete"):
 			playerReference.isLockedOnAction = false
-			playerReference.take_item()
-			$CodeStationUI/ProgressBar.show()
-			animation.play("load")
+			Application.placed = Application.PLACED.PLAYER
 			IsInteracting = false
 			$CodeStationUI/Particles.emitting = false
-			$"../../Display".hide()
+			$CodeStationUI/BUILD.hide()
+			$CodeStationUI/ProgressBar.hide()
 		else:
 			$CodeStationUI/Particles.emitting = true
 			executeCode()
@@ -33,7 +36,7 @@ func executeCode():
 	if Application.placed == Application.PLACED.CODE:
 		if last_produced + code_value_interval <= elapsed_time:
 			last_produced = elapsed_time
-			applicationReference.increaseCodeValue()
+			Application.increaseCodeValue()
 		
 	
 

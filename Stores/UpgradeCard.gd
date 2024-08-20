@@ -1,12 +1,20 @@
 class_name UpgradeCard
 extends Panel
 
+var card_category = null
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var cname = ""
+var description = ""
+var price = ""
+var index = -1
+
+func fill(category, caname, description, price, idx):
+	card_category = category
+	$Name.text  = caname
+	$Description.text= description
+	$Price.text = str(price)
+	index = idx
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_button_pressed():
+	UpgradeStore.buy_card(card_category)

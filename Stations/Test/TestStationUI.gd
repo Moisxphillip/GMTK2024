@@ -10,29 +10,35 @@ var last_produced = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"../../Display".hide()
 	$TestStationUI/Particles.emitting = false
+	$TestStationUI/ProgressBar.hide()
+	$RELEASE.hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	elapsed_time += _delta
 	
 	if IsInteracting and Application.placed == Application.PLACED.TEST:
+		
 		if Input.is_action_just_pressed("Complete"):
 			playerReference.isLockedOnAction = false
-			playerReference.take_item()
 			IsInteracting = false
+			Application.placed = Application.PLACED.PLAYER
 			$TestStationUI/Particles.emitting = false
-			$"../../Display".hide()
+			$RELEASE.hide()
+			$TestStationUI/ProgressBar.hide()
 		else:
 			$TestStationUI/Particles.emitting = true
+			$TestStationUI/ProgressBar.show()
 			executeTest()
+			$RELEASE.show()
 	
 func executeTest():
 	if Application.placed == Application.PLACED.TEST:
 		if last_produced + test_value_interval <= elapsed_time:
 			last_produced = elapsed_time
-			applicationReference.increaseCodeQuality()
-			$TestStationUI/ProgressBar.value = clamp(applicationReference.avg_code_quality_percentage * 100, 0 , 100)
+			Application.increaseCodeQuality()
+			print(Application.avg_code_quality_percentage)
+			$TestStationUI/ProgressBar.value = Application.avg_code_quality_percentage*100
 		
 	
 
